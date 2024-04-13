@@ -1,0 +1,399 @@
+// Banner.js
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import Ifart from "../../assets/WhimsicalMascot1.png";
+import { FaTelegramPlane, FaTwitter, FaEthereum, FaChartBar } from 'react-icons/fa';
+import { Si1Password} from 'react-icons/si';
+import { IoMdPricetags } from 'react-icons/io';
+import { RiExchangeFundsFill } from 'react-icons/ri';
+
+/*import dexscreener from "../../assets/header/dexscreener.png"
+import coinmarketcap from "../../assets/header/coinmarketcap.png"
+import dexview from "../../assets/header/dexview.png"
+import pinksale from "../../assets/header/pinksale.png"
+import dexstools from "../../assets/header/dextools.png"
+import xlogo from "../../assets/Twitter.png"
+import tlogo from "../../assets/Send.png"*/
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const BannerContainer = styled.section`
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5fa03a;
+  perspective: 1000px;
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 80px 0;
+  }
+`;
+
+const BannerBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(95, 160, 58, 0.8), rgba(76, 140, 47, 0.8), rgba(95, 160, 58, 0.8));
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  z-index: 1;
+`;
+
+const BannerPattern = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px), radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.6;
+  z-index: 2;
+`;
+
+const BannerLines = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 2px, transparent 2px, transparent 10px);
+  opacity: 0.4;
+  z-index: 3;
+`;
+
+const BannerDots = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.8;
+  z-index: 4;
+`;
+
+
+const BannerContent = styled.div`
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: ${fadeIn} 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 90%;
+    padding: 40px;
+  }
+`;
+const LeftColumn = styled.div`
+  flex: 2;
+  padding-right: 60px;
+
+  @media (max-width: 768px) {
+    padding-right: 0;
+    margin-bottom: 60px;
+  }
+`;
+
+
+
+
+ const CoinName = styled.h1`
+font-family: 'Exo 2', sans-serif;
+font-size: 72px;
+font-weight: 800;
+color: #ffffff;
+margin-bottom: 40px;
+text-transform: uppercase;
+letter-spacing: 8px;
+line-height: 1.2;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
+-webkit-text-stroke: 2px #4c8c2f;
+position: relative;
+
+
+&::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #4c8c2f, transparent);
+  opacity: 0.8;
+}
+
+&::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #8b4513, transparent);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  font-size: 56px;
+  margin-bottom: 30px;
+}
+`;
+
+const SocialIcons = styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 50px;
+
+a {
+  color: #ffffff;
+  font-size: 40px;
+  margin-right: 30px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ffcc00;
+  }
+}
+
+@media (max-width: 768px) {
+  margin-bottom: 40px;
+
+  a {
+    font-size: 32px;
+    margin-right: 20px;
+  }
+}
+`;
+const Description = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 40px;
+  max-width: 600px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  position: relative;
+   background: linear-gradient(to right, #ffffff, #c0c0c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 2px solid #4c8c2f;
+  border-radius: 10px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+
+const Button = styled.button`
+  font-family: 'Exo 2', sans-serif;
+  padding: 20px 40px;
+  font-size: 28px;
+  font-weight: 600;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-30deg);
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    padding: 16px 32px;
+  }
+`;
+
+const RightColumn = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin-top: 60px;
+  }
+`;
+const LogoContainer = styled.div`
+  width: 400px;
+  height: 400px;
+  position: relative;
+  animation: ${fadeIn} 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+  }
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+const FartCloud = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+`;
+const Banner = () => {
+  return (
+    <BannerContainer>
+      <BannerBackground />
+      <BannerPattern />
+      <BannerLines />
+      <BannerDots />
+      <BannerContent>
+        <LeftColumn>
+          <CoinName>Book of Farts</CoinName>
+          <SocialIcons>
+            <a href="https://t.me/bookoffarts" target="_blank" rel="noopener noreferrer">
+              <FaTelegramPlane />
+            </a>
+            <a href="https://twitter.com/bookoffarts" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </a>
+            <a href="https://etherscan.io/token/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <FaEthereum />
+            </a>
+            <a href="https://app.uniswap.org/#/swap?outputCurrency=0x1234567890" target="_blank" rel="noopener noreferrer">
+              <Si1Password />
+            </a>
+            <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <FaChartBar />
+            </a>
+            <a href="https://coinmarketcap.com/currencies/book-of-farts/" target="_blank" rel="noopener noreferrer">
+              <IoMdPricetags />
+            </a>
+            <a href="https://www.coingecko.com/en/coins/book-of-farts" target="_blank" rel="noopener noreferrer">
+              <RiExchangeFundsFill />
+            </a>
+          </SocialIcons>
+          <Description>
+            Book of Farts is a hilarious and interactive platform that celebrates the joy of flatulence. Discover a world of laughter and earn rewards for your gassy contributions!
+          </Description>
+          <ButtonContainer>
+            <Button width="200px" backgroundColor="#8b4513">
+              Buy $BOF
+            </Button>
+            <Button width="200px" backgroundColor="#4b2c20">
+              View Charts
+            </Button>
+          </ButtonContainer>
+        </LeftColumn>
+        <RightColumn>
+          <LogoContainer>
+            <Logo src={Ifart} alt="Book of Farts Logo" />
+            <FartCloud />
+          </LogoContainer>
+        </RightColumn>
+      </BannerContent>
+    </BannerContainer>
+  );
+};
+
+export default Banner;
+
