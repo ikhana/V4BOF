@@ -2,18 +2,13 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Ifart from "../../assets/WhimsicalMascot1.png";
-import { FaTelegramPlane, FaTwitter, FaEthereum, FaChartBar } from 'react-icons/fa';
-import { Si1Password} from 'react-icons/si';
-import { IoMdPricetags } from 'react-icons/io';
-import { RiExchangeFundsFill } from 'react-icons/ri';
-
-/*import dexscreener from "../../assets/header/dexscreener.png"
+import dexscreener from "../../assets/header/dexscreener.png"
 import coinmarketcap from "../../assets/header/coinmarketcap.png"
 import dexview from "../../assets/header/dexview.png"
 import pinksale from "../../assets/header/pinksale.png"
-import dexstools from "../../assets/header/dextools.png"
-import xlogo from "../../assets/Twitter.png"
-import tlogo from "../../assets/Send.png"*/
+import dexstools from "../../assets/header/dex.png"
+import xlogo from "../../assets/header/twitter.png"
+import tlogo from "../../assets/header/telegram.png"
 
 const fadeIn = keyframes`
   0% {
@@ -163,30 +158,41 @@ position: relative;
 `;
 
 const SocialIcons = styled.div`
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-bottom: 50px;
-
-a {
-  color: #ffffff;
-  font-size: 40px;
-  margin-right: 30px;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #ffcc00;
-  }
-}
-
-@media (max-width: 768px) {
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 50px;
 
   a {
-    font-size: 32px;
-    margin-right: 20px;
+    margin-right: 40px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-}
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    a {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
 `;
 const Description = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -351,25 +357,25 @@ const Banner = () => {
           <CoinName>Book of Farts</CoinName>
           <SocialIcons>
             <a href="https://t.me/bookoffarts" target="_blank" rel="noopener noreferrer">
-              <FaTelegramPlane />
+              <img src={tlogo} alt="Telegram" />
             </a>
             <a href="https://twitter.com/bookoffarts" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
+              <img src={xlogo} alt="Twitter" />
             </a>
-            <a href="https://etherscan.io/token/0x1234567890" target="_blank" rel="noopener noreferrer">
-              <FaEthereum />
-            </a>
-            <a href="https://app.uniswap.org/#/swap?outputCurrency=0x1234567890" target="_blank" rel="noopener noreferrer">
-              <Si1Password />
-            </a>
-            <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x1234567890" target="_blank" rel="noopener noreferrer">
-              <FaChartBar />
+            <a href="https://dexscreener.com/ethereum/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <img src={dexscreener} alt="Dexscreener" />
             </a>
             <a href="https://coinmarketcap.com/currencies/book-of-farts/" target="_blank" rel="noopener noreferrer">
-              <IoMdPricetags />
+              <img src={coinmarketcap} alt="CoinMarketCap" />
             </a>
-            <a href="https://www.coingecko.com/en/coins/book-of-farts" target="_blank" rel="noopener noreferrer">
-              <RiExchangeFundsFill />
+            <a href="https://dexview.com/eth/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <img src={dexview} alt="Dexview" />
+            </a>
+            <a href="https://www.pinksale.finance/#/launchpad/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <img src={pinksale} alt="PinkSale" />
+            </a>
+            <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x1234567890" target="_blank" rel="noopener noreferrer">
+              <img src={dexstools} alt="Dextools" />
             </a>
           </SocialIcons>
           <Description>
