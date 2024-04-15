@@ -163,7 +163,9 @@ const CTASection = () => {
         <CTAText>
           <CTAHeading>Join the Fart Revolution!</CTAHeading>
           <CTADescription>
-            Don't miss out on the opportunity to be a part of the most hilarious and unique cryptocurrency project ever created. Buy $BOF now and let your farts be heard across the blockchain!
+          Don’t miss out on the opportunity to be a part of the most hilarious and unique meme project ever created. 
+<br/>
+Buy $BOF now and let your farts be heard across the blockchain.
           </CTADescription>
         </CTAText>
         <CTAButton>Buy $BOF Now!</CTAButton>

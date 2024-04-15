@@ -174,7 +174,7 @@ const PhaseList = styled.ul`
 
 const PhaseItem = styled.li`
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 10px;
   padding: 8px 16px;
   font-weight: 400;

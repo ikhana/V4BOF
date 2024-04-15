@@ -379,7 +379,7 @@ const Banner = () => {
             </a>
           </SocialIcons>
           <Description>
-            Book of Farts is a hilarious and interactive platform that celebrates the joy of flatulence. Discover a world of laughter and earn rewards for your gassy contributions!
+          Book of Farts (BOF) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions!
           </Description>
           <ButtonContainer>
             <Button width="200px" backgroundColor="#8b4513">

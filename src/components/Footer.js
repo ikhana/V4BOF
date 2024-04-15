@@ -66,15 +66,20 @@ const SocialLinksContainer = styled.div`
   }
 `;
 
-const SocialIcon = styled.img`
-  width: 40px;
-  height: 40px;
+const SocialIconWrapper = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 20px;
   transition: transform 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   @media (max-width: 768px) {
@@ -82,6 +87,10 @@ const SocialIcon = styled.img`
   }
 `;
 
+const SocialIcon = styled.img`
+  width: 30px;
+  height: 30px;
+`;
 const FartCloud = styled.div`
   position: absolute;
   width: 120px;
@@ -150,10 +159,14 @@ const Footer = () => {
         </FooterNote>
         <SocialLinksContainer>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <SocialIcon src={TwitterIcon} alt="Twitter" />
+            <SocialIconWrapper>
+              <SocialIcon src={TwitterIcon} alt="Twitter" />
+            </SocialIconWrapper>
           </a>
           <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
-            <SocialIcon src={TelegramIcon} alt="Telegram" />
+            <SocialIconWrapper>
+              <SocialIcon src={TelegramIcon} alt="Telegram" />
+            </SocialIconWrapper>
           </a>
         </SocialLinksContainer>
       </FooterContent>

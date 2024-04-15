@@ -295,9 +295,7 @@ const Navbar = () => {
   <>
   <NavbarContainer>
   <Logo src={logo} alt="Book of Farts Logo" />
-  <FartButton onClick={handleFartButtonClick}>
-  Fart Now!
-  </FartButton>
+
   <MenuItems isOpen={isMenuOpen}>
   <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
   <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
@@ -305,6 +303,9 @@ const Navbar = () => {
   <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
   <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
   </MenuItems>
+  <FartButton onClick={handleFartButtonClick}>
+  Fart Now!
+  </FartButton>
   <FartMeter>
   <FartMeterFill percentage={fartMeterPercentage} />
   </FartMeter>

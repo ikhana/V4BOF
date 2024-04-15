@@ -241,7 +241,16 @@ const FartGridComponent = () => {
     <FartGridContainer>
       <FartGridTitle>The Fart Menagerie</FartGridTitle>
       <FartGridDescription>
-        Explore the hilarious collection of farts and enjoy the gaseous delights!
+      Explore below the uproarious collection of user-uploaded farts and press the like button if any of the farts tickle your fancy.
+<br/>
+<br/>
+<br/>
+Want your fart to be featured here? 
+<br/>
+<br/>
+<br/>
+Upload it on our Telegram channel and if it gathers at least 10 likes, we'll showcase it on the website for additional voting. Share your gaseous masterpiece, and let the community decide its fate both on Telegram and here.
+   
       </FartGridDescription>
       <FartGrid>
         {fartItems.slice(0, visibleItems).map((item, index) => (

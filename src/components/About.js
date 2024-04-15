@@ -141,13 +141,14 @@ const About = () => {
         <RightColumn>
           <AboutTitle>About $BOF</AboutTitle>
           <AboutDescription>
-            Book of Farts ($BOF) is a hilarious and unique cryptocurrency that celebrates the joy of flatulence. We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
+          Book of Farts ($BOF) is a hilarious and unique meme project that celebrates the joy of flatulence. We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
           </AboutDescription>
           <AboutDescription>
-            With $BOF, you can earn rewards for your gassy contributions and participate in a variety of fart-themed activities. From fart contests to NFT collections, we aim to create a fun and engaging ecosystem that brings people together through the power of laughter.
+          With $BOF, you can earn rewards for your gassy contributions and engage in a variety of fart-themed activities. From daily fart sound contests to exclusive NFT collections, we aim to create a fun and engaging ecosystem that unites people through the power of laughter.
+
           </AboutDescription>
           <AboutDescription>
-            Join our community of fart enthusiasts and become a part of the most gas-tastic project in the crypto space!
+          Join our community of fart enthusiasts and become a part of the most gas-tastic project in the crypto space! Let's make some noise and profit with every toot in the vibrant world of $BOF.
           </AboutDescription>
         </RightColumn>
       </AboutContent>

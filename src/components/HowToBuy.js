@@ -141,10 +141,15 @@ const Step = styled.div`
 `;
 const StepIcon = styled.div`
   font-size: 64px;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${props => props.color};
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${props => props.hoverColor};
+  }
 `;
 
 const StepTitle = styled.h3`
@@ -229,18 +234,18 @@ const HowToBuy = () => {
     <HowToBuyContainer>
       <HowToBuyTitle>How to Buy $BOF</HowToBuyTitle>
       <StepContainer>
+      <Step>
+  <StepIcon color="#8b4513" hoverColor="#a0522d">
+    <FaWallet />
+  </StepIcon>
+  <StepTitle>Step 1: Create a Wallet</StepTitle>
+  <StepDescription>
+    Download a wallet like Phantom from the App Store or Google Play Store.
+    For desktop users, download the Google Chrome extension.
+  </StepDescription>
+</Step>
         <Step>
-          <StepIcon>
-            <FaWallet />
-          </StepIcon>
-          <StepTitle>Step 1: Create a Wallet</StepTitle>
-          <StepDescription>
-            Download a wallet like Phantom from the App Store or Google Play Store.
-            For desktop users, download the Google Chrome extension.
-          </StepDescription>
-        </Step>
-        <Step>
-          <StepIcon>
+          <StepIcon color="#ffc107" hoverColor="#ffd54f">
             <FaCoins />
           </StepIcon>
           <StepTitle>Step 2: Have SOL in Your Wallet</StepTitle>
@@ -250,7 +255,7 @@ const HowToBuy = () => {
           </StepDescription>
         </Step>
         <Step>
-          <StepIcon>
+          <StepIcon color="#2196f3" hoverColor="#64b5f6">
             <FaExchangeAlt />
           </StepIcon>
           <StepTitle>Step 3: Switch SOL for $BOF</StepTitle>

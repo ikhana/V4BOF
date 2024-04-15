@@ -403,7 +403,7 @@ const HallOfFame = () => {
         ))}
       </PodiumContainer>
       <PrizeDescription>
-        These gas-tastic champions will receive a whiff of cash for their outstanding flatulence!
+      Turn your gassy contributions into rewards! Every week, we announce the Hall of Fame Farts, selected based on community votes. <br/>The top three contributions will receive $1000, $500, and $250 for the 1st, 2nd, and 3rd positions respectively
       </PrizeDescription>
     </HallOfFameContainer>
   );
