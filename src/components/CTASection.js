@@ -176,7 +176,7 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 20px;
   margin: 0 5px;
 }
