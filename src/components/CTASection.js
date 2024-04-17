@@ -87,7 +87,7 @@ const CTAHeading = styled.h2`
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 5px;
     letter-spacing: 2px;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
@@ -176,7 +176,7 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px 20px;
   margin: 0 5px;
 }
