@@ -108,7 +108,7 @@ const HowToBuyTitle = styled.h1`
 const StepContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   gap: 40px;
 
@@ -171,14 +171,15 @@ const StepIcon = styled.div`
 
 const StepTitle = styled.h3`
 font-family: 'Exo 2', sans-serif;
-font-size: 24px;
+font-size: 18px;
 font-weight: 800;
 color: #ffffff;
 margin-bottom: 40px;
 text-transform: uppercase;
 letter-spacing: 4px;
-text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
--webkit-text-stroke: 2px #4c8c2f;
+text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+-webkit-text-stroke: 1.5px #4c8c2f;
+}
 position: relative;
 white-space: nowrap;
 display: inline-block;
@@ -201,6 +202,7 @@ opacity: 0.8;
   
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
   -webkit-text-stroke: 1.5px #4c8c2f;
+}
 }
 
 @media (max-width: 768px) {
