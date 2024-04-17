@@ -80,13 +80,30 @@ const HowToBuyTitle = styled.h1`
     height: 4px;
     background: linear-gradient(to right, #8b4513, transparent);
     opacity: 0.8;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 36px;
+    }
+    
+    @media (max-width: 1024px) {
+    font-size: 40px;
+    margin-bottom: 50px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+    -webkit-text-stroke: 1.5px #4c8c2f;
+    }
+    
+    @media (max-width: 768px) {
+    font-size: 32px;
     margin-bottom: 40px;
-  }
-`;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(76, 140, 47, 0.2), 2px 2px 0 #8b4513;
+    -webkit-text-stroke: 1px #4c8c2f;
+    }
+    
+    @media (max-width: 480px) {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
+    -webkit-text-stroke: 0.5px #4c8c2f;
+    }
+    `;
+   
 
 const StepContainer = styled.div`
   display: flex;
@@ -153,17 +170,51 @@ const StepIcon = styled.div`
 `;
 
 const StepTitle = styled.h3`
-  font-family: 'Exo 2', sans-serif;
-  font-size: 24px;
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
+font-family: 'Exo 2', sans-serif;
+font-size: 24px;
+font-weight: 800;
+color: #ffffff;
+margin-bottom: 40px;
+text-transform: uppercase;
+letter-spacing: 4px;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
+-webkit-text-stroke: 2px #4c8c2f;
+position: relative;
+white-space: nowrap;
+display: inline-block;
 
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
+&::after {
+content: '';
+position: absolute;
+bottom: -20px;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(to right, transparent, #4c8c2f, transparent);
+opacity: 0.8;
+}
+
+
+@media (max-width: 1024px) {
+  font-size: 20px;
+  margin-bottom: 30px;
+  
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+  -webkit-text-stroke: 1.5px #4c8c2f;
+}
+
+@media (max-width: 768px) {
+  font-size: 18px;
+margin-bottom: 20px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
+  -webkit-text-stroke: 0.5px #4c8c2f;
+  
+}
+
+@media (max-width: 480px) {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 `;
 
 const StepDescription = styled.p`
@@ -184,49 +235,68 @@ const StepDescription = styled.p`
   }
 `;
 const HowToBuyButton = styled.button`
-  padding: 16px 32px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 60px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+font-family: 'Exo 2', sans-serif;
+padding: 20px 16px;
+font-size: 32px;
+font-weight: 600;
+background-color: rgba(255, 255, 255, 0.2);
+color: #ffffff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: transform 0.3s ease;
+margin: 30px 20px;
+position: relative;
+overflow: hidden;
+z-index: 1;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-  }
+&:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.3);
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
+&::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
 
-  &:hover::before {
-    opacity: 1;
-  }
+&:hover::before {
+  opacity: 1;
+}
 
-  @media (max-width: 768px) {
-    font-size: 18px;
-    padding: 12px 24px;
-    margin-top: 40px;
-  }
+&::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(45deg);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+&:hover::after {
+  transform: rotate(135deg);
+}
+
+@media (max-width: 768px) {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 5px;
+}
 `;
 
 const HowToBuy = () => {
@@ -248,7 +318,7 @@ const HowToBuy = () => {
           <StepIcon color="#ffc107" hoverColor="#ffd54f">
             <FaCoins />
           </StepIcon>
-          <StepTitle>Step 2: Have SOL in Your Wallet</StepTitle>
+          <StepTitle>Step 2: Have SOL in Wallet</StepTitle>
           <StepDescription>
             Ensure you have SOL in your wallet to switch to $BOF. You can buy SOL
             from an exchange or cross-chain swap and send it to your wallet.

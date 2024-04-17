@@ -49,57 +49,89 @@ const TokenEconomicsSection = styled.section`
   animation: ${fadeIn} 1s ease;
 `;
 const SectionTitleContainer = styled.div`
-  text-align: center;
-`;
+  text-align: center;`;
 
 const SectionTitle = styled.h2`
-  font-family: 'Exo 2', sans-serif;
-  font-size: 48px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 60px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
-  -webkit-text-stroke: 2px #4c8c2f;
-  letter-spacing: 4px;
-  line-height: 1.2;
-  position: relative;
-  z-index: 2;
-  white-space: nowrap;
-  display: inline-block;
+font-family: 'Exo 2', sans-serif;
+font-size: 48px;
+font-weight: 800;
+color: #ffffff;
+margin-bottom: 60px;
+text-transform: uppercase;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
+-webkit-text-stroke: 2px #4c8c2f;
+letter-spacing: 4px;
+line-height: 1.2;
+position: relative;
+z-index: 2;
+white-space: nowrap;
+display: inline-block;
 
-  &::before {
-    content: '💨';
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 48px;
-    color: rgba(255, 255, 255, 0.6);
-    animation: ${fartAnimation} 2s infinite;
-  }
+&::before {
+content: '💨';
+position: absolute;
+top: -40px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 48px;
+color: rgba(255, 255, 255, 0.6);
+animation: ${fartAnimation} 2s infinite;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #8b4513, transparent);
-    opacity: 0.8;
-  }
+&::after {
+content: '';
+position: absolute;
+bottom: -20px;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(to right, #8b4513, transparent);
+opacity: 0.8;
+}
 
-  @media (max-width: 768px) {
-    font-size: 36px;
-    margin-bottom: 40px;
+@media (max-width: 1024px) {
+font-size: 40px;
+margin-bottom: 50px;
+text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+-webkit-text-stroke: 1.5px #4c8c2f;
 
-    &::before {
-      font-size: 30px;
-      top: -30px;
-    }
-  }
+
+&::before {
+  font-size: 40px;
+  top: -30px;
+}
+}
+
+@media (max-width: 768px) {
+font-size: 32px;
+margin-bottom: 40px;
+text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(76, 140, 47, 0.2), 2px 2px 0 #8b4513;
+-webkit-text-stroke: 1px #4c8c2f;
+
+
+&::before {
+  font-size: 32px;
+  top: -20px;
+}
+}
+
+@media (max-width: 480px) {
+font-size: 24px;
+margin-bottom: 30px;
+text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
+-webkit-text-stroke: 0.5px #4c8c2f;
+
+
+&::before {
+  font-size: 24px;
+  top: -10px;
+}
+}
 `;
+
+
+
+
 
 
 const TokenEconomicsDescription = styled.p`
@@ -143,12 +175,17 @@ const TokenDistributionContainer = styled.div`
   gap: 30px;
   margin-bottom: 60px;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     margin-bottom: 40px;
   }
 `;
+
 const TokenDistributionCard = styled.div`
   background-color: ${props => props.color};
   border-radius: 20px 20px 50% 20px;
@@ -442,49 +479,73 @@ const TotalFartsContainer = styled.div`
 `;
 
 const TotalFartsTitle = styled.h3`
-font-family: 'Exo 2', sans-serif;
-font-size: 48px;
-font-weight: 800;
-color: #ffffff;
-margin-bottom: 20px;
-text-transform: uppercase;
-letter-spacing: 4px;
-text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
--webkit-text-stroke: 2px #4c8c2f;
-position: relative;
-white-space: nowrap;
-display: inline-block;
-
-&::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, #8b4513, transparent);
-  opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-`;
-
-const TotalFartsCount = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 64px;
-  color: #ffcc00;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
   margin-bottom: 20px;
-  text-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
-  animation: ${pulseAnimation} 2s infinite;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 2px 2px 0 #8b4513;
+  -webkit-text-stroke: 2px #4c8c2f;
   position: relative;
-  z-index: 2;
+  white-space: nowrap;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #8b4513, transparent);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
 
   @media (max-width: 768px) {
     font-size: 32px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(76, 140, 47, 0.3), 1px 1px 0 #8b4513;
+    -webkit-text-stroke: 1px #4c8c2f;
   }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 5px rgba(76, 140, 47, 0.2), 1px 1px 0 #8b4513;
+    -webkit-text-stroke: 0.5px #4c8c2f;
+  }
+`;
+
+
+const TotalFartsCount = styled.p`
+font-family: 'Roboto', sans-serif;
+font-size: 64px;
+color: #ffcc00;
+margin-bottom: 20px;
+text-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
+animation: ${pulseAnimation} 2s infinite;
+position: relative;
+z-index: 2;
+
+@media (max-width: 1024px) {
+font-size: 56px;
+}
+
+@media (max-width: 768px) {
+font-size: 48px;
+margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+font-size: 24px;
+margin-bottom: 10px;
+}
 `;
 const TokenEconomicsSections = () => {
   const [fartParticles, setFartParticles] = useState([]);

@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import logo from '../assets/logo1.png';
-import Ifart from "../assets/farts/Ifarted.wav";
+import logo from '../assets/log2.png';
+import Ifart1 from "../assets/farts/fart1.wav";
+import Ifart2 from "../assets/farts/fart7.wav";
+import Ifart3 from "../assets/farts/fart8.wav";
+import Ifart4 from "../assets/farts/fart4.wav";
+import Ifart5 from "../assets/farts/fart10.wav";
+const fartSounds = [Ifart1, Ifart2, Ifart3, Ifart4, Ifart5];
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -12,10 +17,13 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 20px;
+  padding: 20px;
   position: relative;
   z-index: 999;
   animation: ${fadeIn} 1s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     position: fixed;
@@ -27,7 +35,7 @@ const NavbarContainer = styled.nav`
 `;
 
 const Logo = styled.img`
-  height: 80px;
+  height: 130px;
   width: auto;
   cursor: pointer;
   margin-right: 20px;
@@ -52,7 +60,8 @@ const MenuItems = styled.ul`
     max-height: 400px;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 20px;
     transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
     transition: transform 0.3s ease;
@@ -75,6 +84,7 @@ const MenuItems = styled.ul`
     }
   }
 `;
+
 
 
 const MenuItem = styled.li`
@@ -117,46 +127,68 @@ const MenuItem = styled.li`
 `;
 
 const FartButton = styled.button`
+font-family: 'Exo 2', sans-serif;
+padding: 12px 24px;
+font-size: 18px;
+font-weight: 600;
+background-color: rgba(255, 255, 255, 0.2);
+color: #ffffff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: transform 0.3s ease;
+margin: 0 10px;
+position: relative;
+overflow: hidden;
+z-index: 1;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+&:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+&::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+&:hover::before {
+  opacity: 1;
+}
+
+&::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(45deg);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+&:hover::after {
+  transform: rotate(135deg);
+}
+
+@media (max-width: 768px) {
+  font-size: 16px;
   padding: 10px 20px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-
-  @media (max-width: 768px) {
-    margin-left: 0;
-    margin-top: 10px;
-  }
+  margin: 0 5px;
+}
 `;
 const HamburgerMenu = styled.div`
   display: none;
@@ -168,11 +200,16 @@ const HamburgerMenu = styled.div`
   position: relative;
   z-index: 2;
   margin-right: 25px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     display: flex;
   }
 `;
+
 
 const HamburgerLine = styled.div`
   width: 100%;
@@ -269,18 +306,21 @@ const Navbar = () => {
   };
   
   const handleFartButtonClick = () => {
-  if (fartMeterPercentage < 100) {
-  setIsFartSoundPlaying(true);
-  audioRef.current.play();
-  setFartMeterPercentage(prevPercentage => prevPercentage + 20);
-  setTimeout(() => {
-  setIsFartSoundPlaying(false);
-  console.log(isFartSoundPlaying)
-  }, 2000);
-  }
-  if (fartMeterPercentage === 100) {
-  setFartMeterPercentage(0);
-  }
+    if (fartMeterPercentage < 100) {
+      const randomIndex = Math.floor(Math.random() * fartSounds.length);
+      const randomFartSound = fartSounds[randomIndex];
+      setIsFartSoundPlaying(true);
+      audioRef.current.src = randomFartSound;
+      audioRef.current.play();
+      setFartMeterPercentage(prevPercentage => prevPercentage + 20);
+      setTimeout(() => {
+        setIsFartSoundPlaying(false);
+        console.log(isFartSoundPlaying);
+      }, 2000);
+    }
+    if (fartMeterPercentage === 100) {
+      setFartMeterPercentage(0);
+    }
   };
   
   const handleMenuItemClick = (sectionId) => {
@@ -310,7 +350,7 @@ const Navbar = () => {
   <FartMeterFill percentage={fartMeterPercentage} />
   </FartMeter>
   <FartMeterText>Fart Meter: {fartMeterPercentage}%</FartMeterText>
-  <audio ref={audioRef} src={Ifart} />
+  <audio ref={audioRef} />
   <HamburgerMenu onClick={handleMenuToggle}>
   <HamburgerLine isOpen={isMenuOpen} />
   <HamburgerLine isOpen={isMenuOpen} />

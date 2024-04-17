@@ -1,7 +1,6 @@
 // Banner.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Ifart from "../../assets/WhimsicalMascot1.png";
 import dexscreener from "../../assets/header/dexscreener.png"
 import coinmarketcap from "../../assets/header/coinmarketcap.png"
 import dexview from "../../assets/header/dexview.png"
@@ -9,6 +8,8 @@ import pinksale from "../../assets/header/pinksale.png"
 import dexstools from "../../assets/header/dex.png"
 import xlogo from "../../assets/header/twitter.png"
 import tlogo from "../../assets/header/telegram.png"
+import animatedLogo from "../../assets/animatedlogo.gif";
+
 
 const fadeIn = keyframes`
   0% {
@@ -28,7 +29,7 @@ const BannerContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5fa03a;
+  background-color: #4c8c2f;
   perspective: 1000px;
 
   @media (max-width: 768px) {
@@ -43,7 +44,7 @@ const BannerBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(95, 160, 58, 0.8), rgba(76, 140, 47, 0.8), rgba(95, 160, 58, 0.8));
+  background: linear-gradient(45deg, rgba(76, 140, 47, 0.8), rgba(60, 110, 37, 0.8), rgba(76, 140, 47, 0.8));
   opacity: 0.8;
   mix-blend-mode: multiply;
   z-index: 1;
@@ -85,12 +86,11 @@ const BannerDots = styled.div`
   z-index: 4;
 `;
 
-
 const BannerContent = styled.div`
   position: relative;
   z-index: 5;
   max-width: 1200px;
-  padding: 60px;
+  padding: 60px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,63 +99,78 @@ const BannerContent = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     max-width: 90%;
-    padding: 40px;
+    padding: 40px 0;
   }
 `;
 const LeftColumn = styled.div`
   flex: 2;
-  padding-right: 60px;
+  padding-right: 0px;
 
   @media (max-width: 768px) {
     padding-right: 0;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 `;
 
 
 
 
- const CoinName = styled.h1`
-font-family: 'Exo 2', sans-serif;
-font-size: 72px;
-font-weight: 800;
-color: #ffffff;
-margin-bottom: 40px;
-text-transform: uppercase;
-letter-spacing: 8px;
-line-height: 1.2;
-text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
--webkit-text-stroke: 2px #4c8c2f;
-position: relative;
+const CoinName = styled.h1`
+  font-family: 'Exo 2', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
+  -webkit-text-stroke: 2px #4c8c2f;
+  position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #4c8c2f, transparent);
+    opacity: 0.8;
+  }
 
-&::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, transparent, #4c8c2f, transparent);
-  opacity: 0.8;
-}
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #8b4513, transparent);
+    opacity: 0.8;
+  }
 
-&::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, transparent, #8b4513, transparent);
-  opacity: 0.8;
-}
+  @media (max-width: 1024px) {
+    font-size: 64px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+    -webkit-text-stroke: 1.5px #4c8c2f;
+  }
 
-@media (max-width: 768px) {
-  font-size: 56px;
-  margin-bottom: 30px;
-}
+  @media (max-width: 768px) {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(76, 140, 47, 0.2), 2px 2px 0 #8b4513;
+    -webkit-text-stroke: 1px #4c8c2f;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
+    -webkit-text-stroke: 0.5px #4c8c2f;
+  }
 `;
+
 
 const SocialIcons = styled.div`
   display: flex;
@@ -285,19 +300,20 @@ const RightColumn = styled.div`
     margin-top: 60px;
   }
 `;
-const LogoContainer = styled.div`
-  width: 400px;
-  height: 400px;
+const ImageContainer = styled.div`
+  width: 900px;
+  height: 900px;
   position: relative;
-  animation: ${fadeIn} 1s ease-in-out;
+  margin-left: -100px;
 
   @media (max-width: 768px) {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
+    margin-left: 0;
   }
 `;
 
-const Logo = styled.img`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -308,8 +324,8 @@ const FartCloud = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
+  width: 80%;
+  height: 80%;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   opacity: 0.8;
@@ -391,10 +407,10 @@ const Banner = () => {
           </ButtonContainer>
         </LeftColumn>
         <RightColumn>
-          <LogoContainer>
-            <Logo src={Ifart} alt="Book of Farts Logo" />
+          <ImageContainer>
+            <Image src={animatedLogo} alt="Animated Logo" />
             <FartCloud />
-          </LogoContainer>
+          </ImageContainer>
         </RightColumn>
       </BannerContent>
     </BannerContainer>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TwitterIcon from '../assets/Twitter.png';
 import TelegramIcon from '../assets/Send.png';
-import logo from "../assets/logo.png";
+import logo from "../assets/log2.png";
 
 const FooterContainer = styled.footer`
   background-color: rgba(255, 255, 255, 0.1);
@@ -10,9 +10,12 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 120px;
+  min-height: 100px;
   position: relative;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     flex-direction: column;

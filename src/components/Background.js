@@ -31,7 +31,7 @@ const BackgroundContainer = styled.div`
   height: 100%;
   overflow: hidden;
   z-index: -1;
-  background-color: #5fa03a;
+  background-color: #4c8c2f;
   perspective: 1000px;
 `;
 
@@ -41,7 +41,7 @@ const BackgroundGradient = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(95, 160, 58, 0.8), rgba(76, 140, 47, 0.8), rgba(95, 160, 58, 0.8));
+  background: linear-gradient(45deg, rgba(76, 140, 47, 0.8), rgba(60, 110, 37, 0.8), rgba(76, 140, 47, 0.8));
   opacity: 0.8;
   mix-blend-mode: multiply;
   z-index: 1;
@@ -124,7 +124,6 @@ const FartCloud = styled.div`
     opacity: 0.4;
   }
 `;
-
 const FartCloudLeft = styled(FartCloud)`
   top: 20%;
   left: -100px;
@@ -220,30 +219,30 @@ const GlowingOrb = styled.div`
     right: 30%;
     animation-delay: 3s;
   }
-  `;
-  
-  const MainBackground = () => {
+`;
+
+const MainBackground = () => {
   return (
-  <BackgroundContainer>
-  <BackgroundGradient />
-  <BackgroundPattern />
-  <BackgroundLines />
-  <BackgroundDots />
-  <FartCloudLeft />
-  <FartCloudRight />
-  <BackgroundBubbles>
-  <Bubble size={60} duration={8} />
-  <Bubble size={40} duration={12} />
-  <Bubble size={80} duration={10} />
-  <Bubble size={50} duration={6} />
-  </BackgroundBubbles>
-  <BackgroundLines2 />
-  <BackgroundGlowingOrbs>
-  <GlowingOrb duration={6} />
-  <GlowingOrb duration={8} />
-  </BackgroundGlowingOrbs>
-  </BackgroundContainer>
+    <BackgroundContainer>
+      <BackgroundGradient />
+      <BackgroundPattern />
+      <BackgroundLines />
+      <BackgroundDots />
+      <FartCloudLeft />
+      <FartCloudRight />
+      <BackgroundBubbles>
+        <Bubble size={60} duration={8} />
+        <Bubble size={40} duration={12} />
+        <Bubble size={80} duration={10} />
+        <Bubble size={50} duration={6} />
+      </BackgroundBubbles>
+      <BackgroundLines2 />
+      <BackgroundGlowingOrbs>
+        <GlowingOrb duration={6} />
+        <GlowingOrb duration={8} />
+      </BackgroundGlowingOrbs>
+    </BackgroundContainer>
   );
-  };
-  
-  export default MainBackground;
+};
+
+export default MainBackground;
