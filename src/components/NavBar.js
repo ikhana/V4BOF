@@ -32,7 +32,7 @@ const NavbarContainer = styled.nav`
     width: 100%;
     padding: 10px;
     flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #006400;
     backdrop-filter: blur(10px);
   }
 `;
