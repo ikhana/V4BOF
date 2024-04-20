@@ -583,58 +583,60 @@ const TokenEconomicsSections = () => {
           Discover the <span>hilarious</span> and <span>unique</span> tokenomics of our fart-tastic project!
         </TokenEconomicsDescription>
         <TokenDistributionContainer>
-  <TokenDistributionCard color="#FF4081">
+  <TokenDistributionCard color="#8BC34A">
     <TokenDistributionIcon>🚀</TokenDistributionIcon>
     <TokenDistributionName>Presale farts</TokenDistributionName>
     <TokenDistributionPercentage>40%</TokenDistributionPercentage>
   </TokenDistributionCard>
-  <TokenDistributionCard color="#4CAF50">
+  <TokenDistributionCard color="#808000">
     <TokenDistributionIcon>💧</TokenDistributionIcon>
     <TokenDistributionName>Liquidity farts</TokenDistributionName>
     <TokenDistributionPercentage>20%</TokenDistributionPercentage>
   </TokenDistributionCard>
-  <TokenDistributionCard color="#2196F3">
+  <TokenDistributionCard color="#F5F5DC">
     <TokenDistributionIcon>🤝</TokenDistributionIcon>
     <TokenDistributionName>Marketing farts</TokenDistributionName>
     <TokenDistributionPercentage>15%</TokenDistributionPercentage>
   </TokenDistributionCard>
-  <TokenDistributionCard color="#FFEB3B">
+  <TokenDistributionCard color="#D2B48C">
     <TokenDistributionIcon>👥</TokenDistributionIcon>
     <TokenDistributionName>Team/Advisors farts</TokenDistributionName>
     <TokenDistributionPercentage>10%</TokenDistributionPercentage>
   </TokenDistributionCard>
-  <TokenDistributionCard color="#9C27B0">
+  <TokenDistributionCard color="#FFFDD0">
     <TokenDistributionIcon>📈</TokenDistributionIcon>
     <TokenDistributionName>Exchange Listing farts</TokenDistributionName>
     <TokenDistributionPercentage>7.5%</TokenDistributionPercentage>
   </TokenDistributionCard>
-  <TokenDistributionCard color="#FF5722">
+  <TokenDistributionCard color="#98FB98">
     <TokenDistributionIcon>🏆</TokenDistributionIcon>
     <TokenDistributionName>Fart Competitions farts</TokenDistributionName>
     <TokenDistributionPercentage>7.5%</TokenDistributionPercentage>
   </TokenDistributionCard>
 </TokenDistributionContainer>
 
+
 <FartMeter>
-  <FartMeterFill percentage={40} color="#FF4081">
+  <FartMeterFill percentage={40} color="#8BC34A">
     <FartMeterLabel percentage={40}></FartMeterLabel>
   </FartMeterFill>
-  <FartMeterFill percentage={20} color="#4CAF50">
+  <FartMeterFill percentage={20} color="#808000">
     <FartMeterLabel percentage={60}></FartMeterLabel>
   </FartMeterFill>
-  <FartMeterFill percentage={15} color="#2196F3">
+  <FartMeterFill percentage={15} color="#F5F5DC">
     <FartMeterLabel percentage={75}></FartMeterLabel>
   </FartMeterFill>
-  <FartMeterFill percentage={10} color="#FFEB3B">
+  <FartMeterFill percentage={10} color="#D2B48C">
     <FartMeterLabel percentage={85}></FartMeterLabel>
   </FartMeterFill>
-  <FartMeterFill percentage={7.5} color="#9C27B0">
+  <FartMeterFill percentage={7.5} color="#FFFDD0">
     <FartMeterLabel percentage={92.5}></FartMeterLabel>
   </FartMeterFill>
-  <FartMeterFill percentage={7.5} color="#FF5722">
+  <FartMeterFill percentage={7.5} color="#98FB98">
     <FartMeterLabel percentage={100}></FartMeterLabel>
   </FartMeterFill>
 </FartMeter>
+
 
         <FartMeterText>Fart-o-nomics: 100% Gassy Goodness!</FartMeterText>
         <TokenAllocationContainer></TokenAllocationContainer>
