@@ -32,11 +32,10 @@ const NavbarContainer = styled.nav`
     width: 100%;
     padding: 10px;
     flex-wrap: wrap;
-    background-color: #006400;
-    backdrop-filter: blur(10px);
+    background-color: #4c8c2f;
+    backdrop-filter: none;
   }
 `;
-
 
 const Logo = styled.img`
   height: 130px;
