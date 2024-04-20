@@ -340,11 +340,11 @@ const Roadmap = () => {
           <PhaseTitle>FARTING PHASE ONE</PhaseTitle>
           <PhaseList>
             <PhaseItem>Community Building</PhaseItem>
-            <PhaseItem>$BOF Contract Creation</PhaseItem>
-            <PhaseItem>$BOF Token Marketing</PhaseItem>
-            <PhaseItem>$BOF Contests for Community</PhaseItem>
-            <PhaseItem>$BOF Presale on PinkSale</PhaseItem>
-            <PhaseItem>Launch $BOF Staking Platform</PhaseItem>
+            <PhaseItem>$FARTI Contract Creation</PhaseItem>
+            <PhaseItem>$FARTI Token Marketing</PhaseItem>
+            <PhaseItem>$FARTI Contests for Community</PhaseItem>
+            <PhaseItem>$FARTI Presale on PinkSale</PhaseItem>
+            <PhaseItem>Launch $FARTI Staking Platform</PhaseItem>
             <PhaseItem>Partnerships with Fart-Friendly Projects</PhaseItem>
           </PhaseList>
         </RoadmapPhase>
@@ -354,22 +354,22 @@ const Roadmap = () => {
             <PhaseItem>Launch on FARTRAYDIUM/Jupiter</PhaseItem>
             <PhaseItem>Coingecko &amp; CoinMarketCap Listings</PhaseItem>
             <PhaseItem>Tier 1 CEX Listings</PhaseItem>
-            <PhaseItem>Major $BOF Marketing Campaign</PhaseItem>
-            <PhaseItem>1,500+ $BOF Holders</PhaseItem>
-            <PhaseItem>Develop $BOF Fart Game Prototype</PhaseItem>
-            <PhaseItem>Expand $BOF Ecosystem with New Features</PhaseItem>
+            <PhaseItem>Major $FARTI Marketing Campaign</PhaseItem>
+            <PhaseItem>1,500+ $FARTI Holders</PhaseItem>
+            <PhaseItem>Develop $FARTI Fart Game Prototype</PhaseItem>
+            <PhaseItem>Expand $FARTI Ecosystem with New Features</PhaseItem>
           </PhaseList>
         </RoadmapPhase>
         <RoadmapPhase>
           <PhaseTitle>FARTING Phase Three</PhaseTitle>
           <PhaseList>
             <PhaseItem>Binance and Coinbase Listing</PhaseItem>
-            <PhaseItem>$100M $BOF Market Cap</PhaseItem>
-            <PhaseItem>Fancy Merch for $BOF Fans</PhaseItem>
-            <PhaseItem>10,000+ $BOF Holders</PhaseItem>
-            <PhaseItem>$BOF NFT Collection Launch</PhaseItem>
-            <PhaseItem>Release $BOF Fart Game Beta</PhaseItem>
-            <PhaseItem>Host $BOF Fart Tournament with Prizes</PhaseItem>
+            <PhaseItem>$100M $FARTI Market Cap</PhaseItem>
+            <PhaseItem>Fancy Merch for $FARTI Fans</PhaseItem>
+            <PhaseItem>10,000+ $FARTI Holders</PhaseItem>
+            <PhaseItem>$FARTI NFT Collection Launch</PhaseItem>
+            <PhaseItem>Release $FARTI Fart Game Beta</PhaseItem>
+            <PhaseItem>Host $FARTI Fart Tournament with Prizes</PhaseItem>
           </PhaseList>
         </RoadmapPhase>
       </RoadmapPhases>

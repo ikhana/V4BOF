@@ -8,7 +8,7 @@ import pinksale from "../../assets/header/pinksale.png"
 import dexstools from "../../assets/header/dex.png"
 import xlogo from "../../assets/header/twitter.png"
 import tlogo from "../../assets/header/telegram.png"
-import animatedLogo from "../../assets/animatedlogo.gif";
+import animatedLogo from "../../assets/herologo.png";
 
 
 
@@ -197,7 +197,8 @@ const SocialIcons = styled.div`
   @media (max-width: 768px) {
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: 40px;
 
     a {
       margin-right: 20px;
@@ -302,10 +303,23 @@ const RightColumn = styled.div`
   }
 `;
 const ImageContainer = styled.div`
-  width: 900px;
-  height: 900px;
+  width: 600px;
+  height: 600px;
   position: relative;
-  margin-left: -100px;
+  margin-left: -0px;
+  animation: floatAnimation 3s ease-in-out infinite;
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   @media (max-width: 768px) {
     width: 300px;
@@ -371,7 +385,7 @@ const Banner = () => {
       <BannerDots />
       <BannerContent>
         <LeftColumn>
-          <CoinName>Book of Farts</CoinName>
+          <CoinName>FARTI LAND</CoinName>
           <SocialIcons>
             <a href="https://t.me/bookoffarts" target="_blank" rel="noopener noreferrer">
               <img src={tlogo} alt="Telegram" />
@@ -396,11 +410,11 @@ const Banner = () => {
             </a>
           </SocialIcons>
           <Description>
-          Book of Farts (BOF) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions!
+          Farti Land (FARTI) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions!
           </Description>
           <ButtonContainer>
             <Button width="200px" backgroundColor="#8b4513">
-              Buy $BOF
+              Buy $FARTI
             </Button>
             <Button width="200px" backgroundColor="#4b2c20">
               View Charts

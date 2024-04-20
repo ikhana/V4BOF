@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import logo from '../assets/log2.png';
+import logo from '../assets/logoHeader.png';
 import Ifart1 from "../assets/farts/fart1.wav";
 import Ifart2 from "../assets/farts/fart7.wav";
 import Ifart3 from "../assets/farts/fart8.wav";
@@ -36,6 +36,7 @@ const NavbarContainer = styled.nav`
 
 const Logo = styled.img`
   height: 130px;
+  width: 80px;
   width: auto;
   cursor: pointer;
   margin-right: 20px;
@@ -334,7 +335,7 @@ const Navbar = () => {
   return (
   <>
   <NavbarContainer>
-  <Logo src={logo} alt="Book of Farts Logo" />
+  <Logo src={logo} alt="FARTI LAND Logo" />
 
   <MenuItems isOpen={isMenuOpen}>
   <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>

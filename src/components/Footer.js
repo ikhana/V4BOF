@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TwitterIcon from '../assets/Twitter.png';
 import TelegramIcon from '../assets/Send.png';
-import logo from "../assets/log2.png";
+import logo from "../assets/footerlogo.png";
 
 const FooterContainer = styled.footer`
   background-color: rgba(255, 255, 255, 0.1);
@@ -158,7 +158,7 @@ const Footer = () => {
       <FooterContent>
         <FooterLogo src={logo} alt="Logo" />
         <FooterNote>
-          &copy; {currentYear} Book of Farts. All rights reserved.
+          &copy; {currentYear} Farti Land. All rights reserved.
         </FooterNote>
         <SocialLinksContainer>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">

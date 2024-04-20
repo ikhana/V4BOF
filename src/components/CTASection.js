@@ -1,7 +1,7 @@
 // CTASection.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import logoVariation from '../assets/log2.png';
+import logoVariation from '../assets/lovelogo.png';
 
 const fadeIn = keyframes`
   0% {
@@ -184,10 +184,22 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 
 const LogoVariation = styled.img`
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   height: auto;
   margin-top: 60px;
-  animation: ${fadeIn} 1s ease-in-out;
+  animation: floatAnimation 3s ease-in-out infinite;
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   @media (max-width: 768px) {
     max-width: 300px;
@@ -204,10 +216,10 @@ const CTASection = () => {
           <CTADescription>
           Don’t miss out on the opportunity to be a part of the most hilarious and unique meme project ever created. 
 <br/>
-Buy $BOF now and let your farts be heard across the blockchain.
+Buy $FARTI now and let your farts be heard across the blockchain.
           </CTADescription>
         </CTAText>
-        <CTAButton>Buy $BOF Now!</CTAButton>
+        <CTAButton>Buy $FARTI Now!</CTAButton>
         <LogoVariation src={logoVariation} alt="Logo Variation" />
       </CTAContent>
     </CTASectionContainer>

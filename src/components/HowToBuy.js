@@ -238,16 +238,16 @@ const StepDescription = styled.p`
 `;
 const HowToBuyButton = styled.button`
 font-family: 'Exo 2', sans-serif;
-padding: 20px 16px;
+padding: 12px 24px;
 font-size: 32px;
 font-weight: 600;
-background-color: rgba(255, 255, 255, 0.2);
+background-color: #ffcc00;
 color: #ffffff;
 border: none;
 border-radius: 4px;
 cursor: pointer;
 transition: transform 0.3s ease;
-margin: 30px 20px;
+margin: 40px 10px;
 position: relative;
 overflow: hidden;
 z-index: 1;
@@ -301,10 +301,12 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 `;
 
+
+
 const HowToBuy = () => {
   return (
     <HowToBuyContainer>
-      <HowToBuyTitle>How to Buy $BOF</HowToBuyTitle>
+      <HowToBuyTitle>How to Buy $FARTI</HowToBuyTitle>
       <StepContainer>
       <Step>
   <StepIcon color="#8b4513" hoverColor="#a0522d">
@@ -322,7 +324,7 @@ const HowToBuy = () => {
           </StepIcon>
           <StepTitle>Step 2: Have SOL in Wallet</StepTitle>
           <StepDescription>
-            Ensure you have SOL in your wallet to switch to $BOF. You can buy SOL
+            Ensure you have SOL in your wallet to switch to $FARTI. You can buy SOL
             from an exchange or cross-chain swap and send it to your wallet.
           </StepDescription>
         </Step>
@@ -330,14 +332,14 @@ const HowToBuy = () => {
           <StepIcon color="#2196f3" hoverColor="#64b5f6">
             <FaExchangeAlt />
           </StepIcon>
-          <StepTitle>Step 3: Switch SOL for $BOF</StepTitle>
+          <StepTitle>Step 3: Switch SOL for $FARTI</StepTitle>
           <StepDescription>
-            Connect to Radium at radium.io. Paste the $BOF token address into Radium
+            Connect to Radium at radium.io. Paste the $FARTI token address into Radium
             and confirm the swap. Sign the wallet signature when prompted.
           </StepDescription>
         </Step>
       </StepContainer>
-      <HowToBuyButton>Buy $BOF Now!</HowToBuyButton>
+      <HowToBuyButton>Buy $FARTI Now!</HowToBuyButton>
     </HowToBuyContainer>
   );
 };

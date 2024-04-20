@@ -639,8 +639,8 @@ const TokenEconomicsSections = () => {
         <FartMeterText>Fart-o-nomics: 100% Gassy Goodness!</FartMeterText>
         <TokenAllocationContainer></TokenAllocationContainer>
         <TotalFartsContainer>
-          <TotalFartsTitle>Total Farts ($BOF) Supply</TotalFartsTitle>
-          <TotalFartsCount>1,000,000,000 $BOF</TotalFartsCount>
+          <TotalFartsTitle>Total Farts ($FARTI) Supply</TotalFartsTitle>
+          <TotalFartsCount>1,000,000,000 $FARTI</TotalFartsCount>
         </TotalFartsContainer>
       </TokenEconomicsContent>
       <FartCloudLeft />
