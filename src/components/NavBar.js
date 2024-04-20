@@ -199,6 +199,7 @@ const HamburgerMenu = styled.div`
   position: relative;
   z-index: 2;
   margin-left: 10px;
+  left: -15px;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
@@ -214,9 +215,11 @@ const HamburgerLine = styled.div`
   height: 2px;
   background-color: #ffffff;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+ 
 
   &:nth-child(1) {
-    transform: ${props => (props.isOpen ? 'rotate(45deg) translate(3px, 3px)' : 'none')};
+    transform: ${props => (props.isOpen ? 'rotate(45deg) translate(1px, 1px)' : 'none')};
   }
 
   &:nth-child(2) {
@@ -224,9 +227,10 @@ const HamburgerLine = styled.div`
   }
 
   &:nth-child(3) {
-    transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(3px, -3px)' : 'none')};
+    transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(1px, -1px)' : 'none')};
   }
 `;
+
 
 const FartMeter = styled.div`
   width: 120px;
