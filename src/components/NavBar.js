@@ -30,9 +30,8 @@ const NavbarContainer = styled.nav`
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 10px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -44,19 +43,8 @@ const Logo = styled.img`
   margin-right: 20px;
 
   @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const MobileLogo = styled.img`
-  display: none;
-  height: 80px;
-  width: auto;
-  cursor: pointer;
-  margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    display: block;
+    height: 80px;
+    margin-right: 10px;
   }
 `;
 
@@ -68,11 +56,10 @@ const MenuItems = styled.ul`
 
   @media (max-width: 768px) {
     position: fixed;
-    top: 120px;
+    top: 80px;
     right: 0;
-    width: 250px;
-    height: calc(100vh - 120px);
-    max-height: 400px;
+    width: 100%;
+    height: calc(100vh - 80px);
     flex-direction: column;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
@@ -80,8 +67,6 @@ const MenuItems = styled.ul`
     padding: 20px;
     transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
     transition: transform 0.3s ease;
-    border-radius: 20px 0 0 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -136,12 +121,13 @@ const MenuItem = styled.li`
 
   @media (max-width: 768px) {
     margin: 15px 0;
+    font-size: 20px;
   }
 `;
 const FartButton = styled.button`
   font-family: 'Exo 2', sans-serif;
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 8px 16px;
+  font-size: 16px;
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
@@ -197,9 +183,9 @@ const FartButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 10px 0;
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 0 5px;
   }
 `;
 
@@ -207,13 +193,13 @@ const HamburgerMenu = styled.div`
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 20px;
+  width: 24px;
+  height: 16px;
   cursor: pointer;
   position: relative;
   z-index: 2;
-  margin-left: 25px;
-  padding: 10px;
+  margin-left: 10px;
+  padding: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -225,12 +211,12 @@ const HamburgerMenu = styled.div`
 
 const HamburgerLine = styled.div`
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: #ffffff;
   transition: transform 0.3s ease, opacity 0.3s ease;
 
   &:nth-child(1) {
-    transform: ${props => (props.isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none')};
+    transform: ${props => (props.isOpen ? 'rotate(45deg) translate(3px, 3px)' : 'none')};
   }
 
   &:nth-child(2) {
@@ -238,17 +224,17 @@ const HamburgerLine = styled.div`
   }
 
   &:nth-child(3) {
-    transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none')};
+    transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(3px, -3px)' : 'none')};
   }
 `;
 
 const FartMeter = styled.div`
-  width: 150px;
-  height: 20px;
+  width: 120px;
+  height: 16px;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  margin-left: 20px;
+  margin-left: 10px;
   position: relative;
 
   &::before {
@@ -286,14 +272,14 @@ const FartMeterFill = styled.div`
       rgba(255, 255, 255, 0.4) 10%,
       transparent 11%
     );
-    background-size: 20px 20px;
+    background-size: 16px 16px;
     animation: gasAnimation 2s linear infinite;
   }
 `;
 
 const FartMeterText = styled.div`
-  margin-right: 40px;
-  font-size: 20px;
+  margin-right: 20px;
+  font-size: 16px;
   font-weight: bold;
   font-family: 'Exo 2', sans-serif;
   color: #ffffff;
@@ -346,7 +332,6 @@ const Navbar = () => {
     <>
       <NavbarContainer>
         <Logo src={logo} alt="FARTI LAND Logo" />
-        <MobileLogo src={logo} alt="FARTI LAND Logo" />
         <MenuItems isOpen={isMenuOpen}>
           <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
