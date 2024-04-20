@@ -302,24 +302,23 @@ const RightColumn = styled.div`
     margin-top: 60px;
   }
 `;
+
+
+const bounceAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+`;
+
 const ImageContainer = styled.div`
   width: 600px;
   height: 600px;
   position: relative;
   margin-left: -0px;
-  animation: floatAnimation 3s ease-in-out infinite;
-
-  @keyframes floatAnimation {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+  animation: ${bounceAnimation} 2s ease-in-out infinite;
 
   @media (max-width: 768px) {
     width: 300px;
@@ -333,6 +332,7 @@ const Image = styled.img`
   height: 100%;
   object-fit: contain;
 `;
+
 
 const FartCloud = styled.div`
   position: absolute;
