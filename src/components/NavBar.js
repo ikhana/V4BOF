@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import logo from '../assets/logoHeader.png';
+import logo from '../assets/logoHeaderwhite.png';
 import Ifart1 from "../assets/farts/fart1.wav";
 import Ifart2 from "../assets/farts/fart7.wav";
 import Ifart3 from "../assets/farts/fart8.wav";
@@ -31,6 +31,8 @@ const NavbarContainer = styled.nav`
     left: 0;
     width: 100%;
     padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -46,6 +48,18 @@ const Logo = styled.img`
   }
 `;
 
+const MobileLogo = styled.img`
+  display: none;
+  height: 80px;
+  width: auto;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
 const MenuItems = styled.ul`
   display: flex;
   list-style: none;
@@ -54,10 +68,10 @@ const MenuItems = styled.ul`
 
   @media (max-width: 768px) {
     position: fixed;
-    top: 80px;
+    top: 120px;
     right: 0;
     width: 250px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 120px);
     max-height: 400px;
     flex-direction: column;
     align-items: center;
@@ -85,8 +99,6 @@ const MenuItems = styled.ul`
     }
   }
 `;
-
-
 
 const MenuItem = styled.li`
   margin-left: 30px;
@@ -126,71 +138,71 @@ const MenuItem = styled.li`
     margin: 15px 0;
   }
 `;
-
 const FartButton = styled.button`
-font-family: 'Exo 2', sans-serif;
-padding: 12px 24px;
-font-size: 18px;
-font-weight: 600;
-background-color: rgba(255, 255, 255, 0.2);
-color: #ffffff;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-transition: transform 0.3s ease;
-margin: 0 10px;
-position: relative;
-overflow: hidden;
-z-index: 1;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  font-family: 'Exo 2', sans-serif;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 
-&:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.3);
-}
+  &:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 
-&::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
 
-&:hover::before {
-  opacity: 1;
-}
+  &:hover::before {
+    opacity: 1;
+  }
 
-&::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
-  transform: rotate(45deg);
-  transition: transform 0.5s ease;
-  z-index: -1;
-}
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.5s ease;
+    z-index: -1;
+  }
 
-&:hover::after {
-  transform: rotate(135deg);
-}
+  &:hover::after {
+    transform: rotate(135deg);
+  }
 
-@media (max-width: 768px) {
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 0 5px;
-}
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
 `;
+
 const HamburgerMenu = styled.div`
   display: none;
   flex-direction: column;
@@ -200,7 +212,7 @@ const HamburgerMenu = styled.div`
   cursor: pointer;
   position: relative;
   z-index: 2;
-  margin-right: 25px;
+  margin-left: 25px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
@@ -210,7 +222,6 @@ const HamburgerMenu = styled.div`
     display: flex;
   }
 `;
-
 
 const HamburgerLine = styled.div`
   width: 100%;
@@ -255,6 +266,7 @@ const FartMeter = styled.div`
     display: none;
   }
 `;
+
 const FartMeterFill = styled.div`
   width: ${props => props.percentage}%;
   height: 100%;
@@ -294,18 +306,16 @@ const FartMeterText = styled.div`
     display: none;
   }
 `;
-
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFartSoundPlaying, setIsFartSoundPlaying] = useState(false);
   const [fartMeterPercentage, setFartMeterPercentage] = useState(0);
   const audioRef = useRef(null);
-  
+
   const handleMenuToggle = () => {
-  setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
-  
+
   const handleFartButtonClick = () => {
     if (fartMeterPercentage < 100) {
       const randomIndex = Math.floor(Math.random() * fartSounds.length);
@@ -323,43 +333,43 @@ const Navbar = () => {
       setFartMeterPercentage(0);
     }
   };
-  
-  const handleMenuItemClick = (sectionId) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-  section.scrollIntoView({ behavior: 'smooth' });
-  setIsMenuOpen(false);
-  }
-  };
-  
-  return (
-  <>
-  <NavbarContainer>
-  <Logo src={logo} alt="FARTI LAND Logo" />
 
-  <MenuItems isOpen={isMenuOpen}>
-  <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('tokenomics')}>Tokenomics</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
-  <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
-  </MenuItems>
-  <FartButton onClick={handleFartButtonClick}>
-  Fart Now!
-  </FartButton>
-  <FartMeter>
-  <FartMeterFill percentage={fartMeterPercentage} />
-  </FartMeter>
-  <FartMeterText>Fart Meter: {fartMeterPercentage}%</FartMeterText>
-  <audio ref={audioRef} />
-  <HamburgerMenu onClick={handleMenuToggle}>
-  <HamburgerLine isOpen={isMenuOpen} />
-  <HamburgerLine isOpen={isMenuOpen} />
-  <HamburgerLine isOpen={isMenuOpen} />
-  </HamburgerMenu>
-  </NavbarContainer>
-  </>
-  );
+  const handleMenuItemClick = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
   };
-  
-  export default Navbar;
+
+  return (
+    <>
+      <NavbarContainer>
+        <Logo src={logo} alt="FARTI LAND Logo" />
+        <MobileLogo src={logo} alt="FARTI LAND Logo" />
+        <MenuItems isOpen={isMenuOpen}>
+          <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
+          <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
+          <MenuItem onClick={() => handleMenuItemClick('tokenomics')}>Tokenomics</MenuItem>
+          <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
+          <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
+        </MenuItems>
+        <FartButton onClick={handleFartButtonClick}>
+          Fart Now!
+        </FartButton>
+        <FartMeter>
+          <FartMeterFill percentage={fartMeterPercentage} />
+        </FartMeter>
+        <FartMeterText>Fart Meter: {fartMeterPercentage}%</FartMeterText>
+        <audio ref={audioRef} />
+        <HamburgerMenu onClick={handleMenuToggle}>
+          <HamburgerLine isOpen={isMenuOpen} />
+          <HamburgerLine isOpen={isMenuOpen} />
+          <HamburgerLine isOpen={isMenuOpen} />
+        </HamburgerMenu>
+      </NavbarContainer>
+    </>
+  );
+};
+
+export default Navbar;

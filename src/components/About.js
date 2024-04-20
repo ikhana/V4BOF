@@ -1,4 +1,3 @@
-// About.js
 import React from 'react';
 import styled from 'styled-components';
 import logoVariation from '../assets/aboutlogo.png';
@@ -36,15 +35,17 @@ const LeftColumn = styled.div`
 
   @media (max-width: 768px) {
     padding-right: 0;
-    margin-top: 40px;
+    margin-bottom: 40px;
     order: 2;
   }
 `;
 
-const LogoVariation = styled.img`
+const LogoVariationContainer = styled.div`
+  position: relative;
   width: 100%;
   max-width: 500px;
   height: auto;
+  margin: 0 auto;
   animation: floatAnimation 3s ease-in-out infinite;
 
   @keyframes floatAnimation {
@@ -61,8 +62,21 @@ const LogoVariation = styled.img`
 
   @media (max-width: 768px) {
     max-width: 300px;
+    margin-top: 40px;
   }
 `;
+
+const LogoVariation = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
 const RightColumn = styled.div`
   flex: 1;
   display: flex;
@@ -75,7 +89,6 @@ const RightColumn = styled.div`
     padding-left: 0;
     align-items: center;
     text-align: center;
-    order: 1;
   }
 `;
 
@@ -114,7 +127,6 @@ const AboutTitle = styled.h2`
     margin-bottom: 30px;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
     -webkit-text-stroke: 0.5px #4c8c2f;
-    
   }
 
   @media (max-width: 480px) {
@@ -124,7 +136,6 @@ const AboutTitle = styled.h2`
     -webkit-text-stroke: 0.5px #4c8c2f;
   }
 `;
-
 const AboutDescription = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
@@ -148,12 +159,96 @@ const AboutDescription = styled.p`
   }
 `;
 
+const LogoVariationOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const LogoVariationText = styled.p`
+  font-family: 'Exo 2', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  ${LogoVariationOverlay}:hover & {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+const FartCloudLeft = styled.div`
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: floatAnimation 4s ease-in-out infinite;
+  z-index: -1;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: -50px;
+  }
+`;
+
+const FartCloudRight = styled.div`
+  position: absolute;
+  bottom: 20%;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: floatAnimation 5s ease-in-out infinite reverse;
+  z-index: -1;
+
+  @media (max-width: 768px) {
+    width: 180px;
+    height: 180px;
+    bottom: 10%;
+    right: -50px;
+  }
+`;
 const About = () => {
   return (
     <AboutContainer>
       <AboutContent>
         <LeftColumn>
-          <LogoVariation src={logoVariation} alt="Logo Variation" />
+          <LogoVariationContainer>
+            <LogoVariation src={logoVariation} alt="Logo Variation" />
+            <LogoVariationOverlay>
+              <LogoVariationText>Frens I am to the moon</LogoVariationText>
+            </LogoVariationOverlay>
+          </LogoVariationContainer>
         </LeftColumn>
         <RightColumn>
           <AboutTitle>About $FARTI</AboutTitle>
@@ -168,6 +263,8 @@ const About = () => {
           </AboutDescription>
         </RightColumn>
       </AboutContent>
+      <FartCloudLeft />
+      <FartCloudRight />
     </AboutContainer>
   );
 };
