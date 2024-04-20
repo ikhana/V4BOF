@@ -22,7 +22,7 @@ const NavbarContainer = styled.nav`
   z-index: 999;
   animation: ${fadeIn} 1s ease;
   background-color: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
@@ -32,8 +32,11 @@ const NavbarContainer = styled.nav`
     width: 100%;
     padding: 10px;
     flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
   }
 `;
+
 
 const Logo = styled.img`
   height: 130px;
