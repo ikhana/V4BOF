@@ -36,7 +36,8 @@ const LeftColumn = styled.div`
 
   @media (max-width: 768px) {
     padding-right: 0;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    order: 2;
   }
 `;
 
@@ -62,7 +63,6 @@ const LogoVariation = styled.img`
     max-width: 300px;
   }
 `;
-
 const RightColumn = styled.div`
   flex: 1;
   display: flex;
@@ -75,6 +75,7 @@ const RightColumn = styled.div`
     padding-left: 0;
     align-items: center;
     text-align: center;
+    order: 1;
   }
 `;
 
@@ -157,14 +158,13 @@ const About = () => {
         <RightColumn>
           <AboutTitle>About $FARTI</AboutTitle>
           <AboutDescription>
-          Farti Land ($FARTI) is a hilarious and unique meme project that celebrates the joy of flatulence. We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
+            Farti Land ($FARTI) is a hilarious and unique meme project that celebrates the joy of flatulence. We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
           </AboutDescription>
           <AboutDescription>
-          With $FARTI, you can earn rewards for your gassy contributions and engage in a variety of fart-themed activities. From daily fart sound contests to exclusive NFT collections, we aim to create a fun and engaging ecosystem that unites people through the power of laughter.
-
+            With $FARTI, you can earn rewards for your gassy contributions and engage in a variety of fart-themed activities. From daily fart sound contests to exclusive NFT collections, we aim to create a fun and engaging ecosystem that unites people through the power of laughter.
           </AboutDescription>
           <AboutDescription>
-          Join our community of fart enthusiasts and become a part of the most gas-tastic project in the crypto space! Let's make some noise and profit with every toot in the vibrant world of $FARTI.
+            Join our community of fart enthusiasts and become a part of the most gas-tastic project in the crypto space! Let's make some noise and profit with every toot in the vibrant world of $FARTI.
           </AboutDescription>
         </RightColumn>
       </AboutContent>

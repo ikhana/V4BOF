@@ -21,7 +21,7 @@ const NavbarContainer = styled.nav`
   position: relative;
   z-index: 999;
   animation: ${fadeIn} 1s ease;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(3px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
