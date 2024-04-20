@@ -305,7 +305,7 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 
 const HowToBuy = () => {
   return (
-    <HowToBuyContainer>
+    <HowToBuyContainer id='how-to-buy'>
       <HowToBuyTitle>How to Buy $FARTI</HowToBuyTitle>
       <StepContainer>
       <Step>

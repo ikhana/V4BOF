@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from '../assets/logoHeaderwhite.png';
 import Ifart1 from "../assets/farts/fart1.wav";
@@ -299,11 +299,35 @@ const FartMeterText = styled.div`
     display: none;
   }
 `;
+
+const MenuOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: ${props => (props.isOpen ? 'block' : 'none')};
+`;
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFartSoundPlaying, setIsFartSoundPlaying] = useState(false);
   const [fartMeterPercentage, setFartMeterPercentage] = useState(0);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsMenuOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -334,7 +358,6 @@ const Navbar = () => {
       setIsMenuOpen(false);
     }
   };
-
   return (
     <>
       <NavbarContainer>
@@ -360,6 +383,7 @@ const Navbar = () => {
           <HamburgerLine isOpen={isMenuOpen} />
         </HamburgerMenu>
       </NavbarContainer>
+      <MenuOverlay isOpen={isMenuOpen} onClick={handleMenuToggle} />
     </>
   );
 };

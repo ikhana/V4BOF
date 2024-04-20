@@ -182,7 +182,7 @@ const LogoVariationText = styled.p`
   font-family: 'Exo 2', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
   text-align: center;
   opacity: 0;
@@ -240,7 +240,7 @@ const FartCloudRight = styled.div`
 `;
 const About = () => {
   return (
-    <AboutContainer>
+    <AboutContainer id='about'>
       <AboutContent>
         <LeftColumn>
           <LogoVariationContainer>

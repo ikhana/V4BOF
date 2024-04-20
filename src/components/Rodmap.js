@@ -333,7 +333,7 @@ const FartConfetti = styled.div`
 `;
 const Roadmap = () => {
   return (
-    <RoadmapContainer>
+    <RoadmapContainer id='roadmap'>
       <RoadmapTitle>Fartastic Roadmap</RoadmapTitle>
       <RoadmapPhases>
         <RoadmapPhase>

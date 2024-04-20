@@ -379,7 +379,7 @@ const HallOfFame = () => {
   };
 
   return (
-    <HallOfFameContainer>
+    <HallOfFameContainer id='hall-of-fame'>
       <HallOfFAmeTitleContainer>
       <HallOfFameTitle>Fart Hall of Fame</HallOfFameTitle>
       </HallOfFAmeTitleContainer>

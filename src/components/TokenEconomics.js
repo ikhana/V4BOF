@@ -574,7 +574,7 @@ const TokenEconomicsSections = () => {
   }, []);
 
   return (
-    <TokenEconomicsSection>
+    <TokenEconomicsSection id='tokenomics'>
     <SectionTitleContainer>
         <SectionTitle>FARTONOMICS</SectionTitle>
       </SectionTitleContainer>
