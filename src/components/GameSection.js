@@ -106,7 +106,7 @@ const GameSection = () => {
  
       <GameSectionTitle>Play FartiLand Game</GameSectionTitle>
       <GameSectionDescription>
-        Immerse yourself in the hilarious world of Farti Land with our interactive game! Collect fart coins, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
+        Immerse yourself in the hilarious world of FartiLand with our interactive game! earn $farti , avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>
       <GameContainer>
         <GameIframe src="/Build/index.html" title="Farti Land Game" />
