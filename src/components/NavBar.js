@@ -363,10 +363,11 @@ const Navbar = () => {
         <Logo src={logo} alt="FARTI LAND Logo" />
         <MenuItems isOpen={isMenuOpen}>
           <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
+          <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('tokenomics')}>Tokenomics</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
-          <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
+         
         </MenuItems>
         <FartButton onClick={handleFartButtonClick}>
           Fart Now!
