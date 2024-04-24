@@ -385,7 +385,7 @@ const Banner = () => {
       <BannerDots />
       <BannerContent>
         <LeftColumn>
-          <CoinName>FARTI LAND</CoinName>
+          <CoinName>FARTILAND</CoinName>
           <SocialIcons>
             <a href="https://t.me/bookoffarts" target="_blank" rel="noopener noreferrer">
               <img src={tlogo} alt="Telegram" />

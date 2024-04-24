@@ -14,6 +14,7 @@ import HallOfFame from './components/HallOfFame';
 import { GlobalStyle } from './GlobalStyle';
 import About from './components/About';
 import CTASection from './components/CTASection';
+import GameSection from './components/GameSection';
 
 const AppContainer = styled.div`
   position: relative;
@@ -26,10 +27,11 @@ function App() {
       <MainBackground/>
       <GlobalStyle/>
       <AppContainer>
-        
+       
         <NavBar />
         <Banner />
         <About/>
+        <GameSection/>
         <HallOfFame/>
         <FartGridComponent />
         <PartnersSection/>
