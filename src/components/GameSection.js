@@ -1,6 +1,7 @@
 // GameSection.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { FaTimes } from 'react-icons/fa';
 
 const fadeIn = keyframes`
   0% {
@@ -14,7 +15,7 @@ const fadeIn = keyframes`
 `;
 
 const GameSectionContainer = styled.section`
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -22,11 +23,9 @@ const GameSectionContainer = styled.section`
   animation: ${fadeIn} 1s ease-in-out;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
 `;
-
-
 
 const GameSectionTitle = styled.h2`
   font-family: 'Exo 2', sans-serif;
@@ -72,8 +71,8 @@ const GameSectionDescription = styled.p`
 
 const GameContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
-  height: 600px;
+  max-width: 1600px;
+  height: 900px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -81,16 +80,20 @@ const GameContainer = styled.div`
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
+  @media (max-width: 1600px) {
+    height: 720px;
+  }
+
+  @media (max-width: 1400px) {
+    height: 630px;
+  }
+
   @media (max-width: 1200px) {
-    height: 500px;
+    height: 540px;
   }
 
   @media (max-width: 992px) {
-    height: 400px;
-  }
-
-  @media (max-width: 768px) {
-    height: 300px;
+    height: 450px;
   }
 `;
 
@@ -100,16 +103,66 @@ const GameIframe = styled.iframe`
   border: none;
 `;
 
+const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  padding: 20px;
+`;
+
+const ErrorIcon = styled(FaTimes)`
+  font-size: 80px;
+  color: #ff4444;
+  margin-bottom: 20px;
+`;
+
+const ErrorMessage = styled.p`
+  margin-bottom: 10px;
+`;
+
 const GameSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
   return (
     <GameSectionContainer>
- 
       <GameSectionTitle>Play FartiLand Game</GameSectionTitle>
       <GameSectionDescription>
-        Immerse yourself in the hilarious world of FartiLand with our interactive game! earn $farti , avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
+        Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $farti, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>
       <GameContainer>
-        <GameIframe src="/Build/index.html" title="Farti Land Game" />
+        {isMobile ? (
+          <ErrorContainer>
+            <ErrorIcon />
+            <ErrorMessage>Oops! The game is currently not available on mobile devices.</ErrorMessage>
+            <ErrorMessage>Please visit us on a PC to play the game.</ErrorMessage>
+          </ErrorContainer>
+        ) : (
+          <GameIframe src="/Build/index.html" title="Farti Land Game" />
+        )}
       </GameContainer>
     </GameSectionContainer>
   );
