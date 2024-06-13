@@ -71,8 +71,8 @@ const GameSectionDescription = styled.p`
 
 const GameContainer = styled.div`
   width: 100%;
-  max-width: 1600px;
-  height: 900px;
+  max-width: 1800px;
+  height: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -80,22 +80,27 @@ const GameContainer = styled.div`
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
+  @media (max-width: 1800px) {
+    height: 900px;
+  }
+
   @media (max-width: 1600px) {
-    height: 720px;
+    height: 800px;
   }
 
   @media (max-width: 1400px) {
-    height: 630px;
+    height: 700px;
   }
 
   @media (max-width: 1200px) {
-    height: 540px;
+    height: 600px;
   }
 
   @media (max-width: 992px) {
-    height: 450px;
+    height: 500px;
   }
 `;
+
 
 const GameIframe = styled.iframe`
   width: 100%;
