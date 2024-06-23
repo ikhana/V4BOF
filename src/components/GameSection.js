@@ -156,7 +156,7 @@ const GameSection = () => {
     <GameSectionContainer>
       <GameSectionTitle>Play FartiLand Game</GameSectionTitle>
       <GameSectionDescription>
-        Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $farti, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
+        Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $FARTI, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>
       <GameContainer>
         {isMobile ? (

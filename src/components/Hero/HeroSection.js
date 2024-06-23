@@ -385,7 +385,7 @@ const Banner = () => {
       <BannerDots />
       <BannerContent>
         <LeftColumn>
-          <CoinName>FARTILAND</CoinName>
+          <CoinName>FaRTI IN FARTI LAND</CoinName>
           <SocialIcons>
             <a href="https://t.me/bookoffarts" target="_blank" rel="noopener noreferrer">
               <img src={tlogo} alt="Telegram" />
@@ -410,7 +410,7 @@ const Banner = () => {
             </a>
           </SocialIcons>
           <Description>
-          Farti Land (FARTI) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions!
+          Farti Land (FARTI) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions by playing the Farti game or uploading your Farts
           </Description>
           <ButtonContainer>
             <Button width="200px" backgroundColor="#8b4513">

@@ -253,7 +253,7 @@ const About = () => {
         <RightColumn>
           <AboutTitle>About $FARTI</AboutTitle>
           <AboutDescription>
-            Farti Land ($FARTI) is a hilarious and unique meme project that celebrates the joy of flatulence. We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
+             We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
           </AboutDescription>
           <AboutDescription>
             With $FARTI, you can earn rewards for your gassy contributions and engage in a variety of fart-themed activities. From daily fart sound contests to exclusive NFT collections, we aim to create a fun and engaging ecosystem that unites people through the power of laughter.
