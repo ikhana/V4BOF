@@ -1,0 +1,32 @@
+{
+  "project_info": {
+    "project_number": "970826232164",
+    "firebase_url": "https://pressuecontrol-default-rtdb.firebaseio.com",
+    "project_id": "pressuecontrol",
+    "storage_bucket": "pressuecontrol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970826232164:ios:ed0afc11616f7e101e4a71",
+        "android_client_info": {
+          "package_name": "com.Pc.pressurecontrol"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAStANCpBVrQNwvhHV2K6pS43CnFjfMjJg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
