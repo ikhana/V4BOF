@@ -153,8 +153,8 @@ const GameSection = () => {
   }, []);
 
   return (
-    <GameSectionContainer>
-      <GameSectionTitle>Play FartiLand Game</GameSectionTitle>
+    <GameSectionContainer id='game-section'>
+      <GameSectionTitle>PLAY FARTING GAME</GameSectionTitle>
       <GameSectionDescription>
         Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $FARTI, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>

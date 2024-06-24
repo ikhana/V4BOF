@@ -1,12 +1,6 @@
-import React, { useState, useRef,useEffect } from 'react';
+import React, { useState,  useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from '../assets/logoHeaderwhite.png';
-import Ifart1 from "../assets/farts/fart1.wav";
-import Ifart2 from "../assets/farts/fart7.wav";
-import Ifart3 from "../assets/farts/fart8.wav";
-import Ifart4 from "../assets/farts/fart4.wav";
-import Ifart5 from "../assets/farts/fart10.wav";
-const fartSounds = [Ifart1, Ifart2, Ifart3, Ifart4, Ifart5];
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -126,68 +120,65 @@ const MenuItem = styled.li`
     font-size: 20px;
   }
 `;
+
+
+const liquidAnimation = keyframes`
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -60%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+`;
+
 const FartButton = styled.button`
   font-family: 'Exo 2', sans-serif;
-  padding: 8px 16px;
-  font-size: 16px;
+  padding: 16px 32px;
+  font-size: 24px;
   font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  margin: 0 10px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  transition: all 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40%;
+    transform: translate(-50%, -75%) rotate(0deg);
+    animation: ${liquidAnimation} 6s linear infinite;
   }
 
-  &:hover::before {
-    opacity: 1;
+  &:after {
+    content: 'Play Now!';
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
-    transform: rotate(45deg);
-    transition: transform 0.5s ease;
-    z-index: -1;
-  }
-
-  &:hover::after {
-    transform: rotate(135deg);
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 6px 12px;
-    margin: 0 5px;
+    font-size: 20px;
+    padding: 12px 24px;
   }
 `;
 
@@ -219,7 +210,6 @@ const HamburgerLine = styled.div`
   transition: transform 0.3s ease, opacity 0.3s ease;
   position: relative;
  
-
   &:nth-child(1) {
     transform: ${props => (props.isOpen ? 'rotate(45deg) translate(1px, 1px)' : 'none')};
   }
@@ -230,72 +220,6 @@ const HamburgerLine = styled.div`
 
   &:nth-child(3) {
     transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(1px, -1px)' : 'none')};
-  }
-`;
-
-
-const FartMeter = styled.div`
-  width: 120px;
-  height: 16px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-left: 10px;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
-    pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const FartMeterFill = styled.div`
-  width: ${props => props.percentage}%;
-  height: 100%;
-  background-color: #ffcc00;
-  transition: width 0.5s ease;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.4) 10%,
-      transparent 11%
-    );
-    background-size: 16px 16px;
-    animation: gasAnimation 2s linear infinite;
-  }
-`;
-
-const FartMeterText = styled.div`
-  margin-right: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Exo 2', sans-serif;
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  background: linear-gradient(to right, #ffffff, #c0c0c0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  @media (max-width: 768px) {
-    display: none;
   }
 `;
 
@@ -312,9 +236,6 @@ const MenuOverlay = styled.div`
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFartSoundPlaying, setIsFartSoundPlaying] = useState(false);
-  const [fartMeterPercentage, setFartMeterPercentage] = useState(0);
-  const audioRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -333,20 +254,9 @@ const Navbar = () => {
   };
 
   const handleFartButtonClick = () => {
-    if (fartMeterPercentage < 100) {
-      const randomIndex = Math.floor(Math.random() * fartSounds.length);
-      const randomFartSound = fartSounds[randomIndex];
-      setIsFartSoundPlaying(true);
-      audioRef.current.src = randomFartSound;
-      audioRef.current.play();
-      setFartMeterPercentage(prevPercentage => prevPercentage + 20);
-      setTimeout(() => {
-        setIsFartSoundPlaying(false);
-        console.log(isFartSoundPlaying);
-      }, 2000);
-    }
-    if (fartMeterPercentage === 100) {
-      setFartMeterPercentage(0);
+    const gameSection = document.getElementById('game-section');
+    if (gameSection) {
+      gameSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -357,6 +267,7 @@ const Navbar = () => {
       setIsMenuOpen(false);
     }
   };
+
   return (
     <>
       <NavbarContainer>
@@ -367,16 +278,8 @@ const Navbar = () => {
           <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('tokenomics')}>Tokenomics</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
-         
         </MenuItems>
-        <FartButton onClick={handleFartButtonClick}>
-          Fart Now!
-        </FartButton>
-        <FartMeter>
-          <FartMeterFill percentage={fartMeterPercentage} />
-        </FartMeter>
-        <FartMeterText>Fart Meter: {fartMeterPercentage}%</FartMeterText>
-        <audio ref={audioRef} />
+       <FartButton onClick={handleFartButtonClick} />
         <HamburgerMenu onClick={handleMenuToggle}>
           <HamburgerLine isOpen={isMenuOpen} />
           <HamburgerLine isOpen={isMenuOpen} />
