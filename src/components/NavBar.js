@@ -164,7 +164,7 @@ const FartButton = styled.button`
   }
 
   &:after {
-    content: 'Play Now!';
+    content: 'Start Farting Now !';
     position: relative;
     z-index: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);

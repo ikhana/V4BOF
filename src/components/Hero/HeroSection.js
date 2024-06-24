@@ -238,26 +238,26 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
 `;
 
-
 const Button = styled.button`
   font-family: 'Exo 2', sans-serif;
-  padding: 20px 40px;
-  font-size: 28px;
+  padding: 15px 30px;
+  font-size: 24px;
   font-weight: 600;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
@@ -287,10 +287,11 @@ const Button = styled.button`
   }
 
   @media (max-width: 768px) {
-    font-size: 24px;
-    padding: 16px 32px;
+    font-size: 20px;
+    padding: 12px 24px;
   }
 `;
+
 
 const RightColumn = styled.div`
   flex: 1;
@@ -377,6 +378,12 @@ const FartCloud = styled.div`
   }
 `;
 const Banner = () => {
+  const scrollToGameSection = () => {
+    const gameSection = document.getElementById('game-section');
+    if (gameSection) {
+      gameSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <BannerContainer>
       <BannerBackground />
@@ -410,16 +417,19 @@ const Banner = () => {
             </a>
           </SocialIcons>
           <Description>
-          Farti Land (FARTI) is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions by playing the Farti game or uploading your Farts
+          $FARTI is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions by playing the Farti game or uploading your Farts
           </Description>
           <ButtonContainer>
-            <Button width="200px" backgroundColor="#8b4513">
-              Buy $FARTI
-            </Button>
-            <Button width="200px" backgroundColor="#4b2c20">
-              View Charts
-            </Button>
-          </ButtonContainer>
+  <Button backgroundColor="#8b4513">
+    Buy $FARTI
+  </Button>
+  <Button backgroundColor="#4b2c20">
+    View Charts
+  </Button>
+  <Button backgroundColor="#4c8c2f" onClick={scrollToGameSection}>
+    Play Farti Game
+  </Button>
+</ButtonContainer>
         </LeftColumn>
         <RightColumn>
           <ImageContainer>
