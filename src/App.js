@@ -11,7 +11,7 @@ import MainBackground from './components/Background';
 
 import { GlobalStyle } from './GlobalStyle';
 
-
+import CTASection from './components/CTASection';
 
 
 const AppContainer = styled.div`
@@ -32,7 +32,9 @@ function App() {
         
        
         <TokenEconomicsSections />
-       
+        <CTASection/>
+      
+      
       </AppContainer>
     </>
   );
