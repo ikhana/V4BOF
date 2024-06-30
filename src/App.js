@@ -28,7 +28,7 @@ function App() {
       <GlobalStyle/>
       <AppContainer>
        
-        <NavBar />
+      
         <Banner />
         <About/>
         <GameSection/>
