@@ -28,8 +28,6 @@ const HowToBuyContainer = styled.section`
 `;
 
 
-
-
 const HowToBuyTitle = styled.h1`
   font-family: 'Exo 2', sans-serif;
   font-size: 48px;
@@ -45,28 +43,52 @@ const HowToBuyTitle = styled.h1`
   white-space: nowrap;
   display: inline-block;
 
-  @media (max-width: 1024px) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(5deg);
+    width: 120%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #8b4513, transparent);
+    opacity: 0.8;
+    }
+    
+    @media (max-width: 1024px) {
     font-size: 40px;
     margin-bottom: 50px;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
     -webkit-text-stroke: 1.5px #4c8c2f;
-  }
-
-  @media (max-width: 768px) {
+    }
+    
+    @media (max-width: 768px) {
     font-size: 32px;
     margin-bottom: 40px;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(76, 140, 47, 0.2), 2px 2px 0 #8b4513;
     -webkit-text-stroke: 1px #4c8c2f;
-  }
-
-  @media (max-width: 480px) {
+    }
+    
+    @media (max-width: 480px) {
     font-size: 24px;
     margin-bottom: 30px;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
     -webkit-text-stroke: 0.5px #4c8c2f;
-  }
-`;
-
+    }
+    `;
+   
 
 const StepContainer = styled.div`
   display: flex;
@@ -97,13 +119,28 @@ const Step = styled.div`
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
   @media (max-width: 768px) {
     flex-basis: 100%;
     margin-bottom: 40px;
     padding: 30px;
   }
 `;
-
 const StepIcon = styled.div`
   font-size: 64px;
   color: ${props => props.color};
@@ -118,37 +155,53 @@ const StepIcon = styled.div`
 `;
 
 const StepTitle = styled.h3`
-  font-family: 'Exo 2', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+font-family: 'Exo 2', sans-serif;
+font-size: 18px;
+font-weight: 800;
+color: #ffffff;
+margin-bottom: 40px;
+text-transform: uppercase;
+letter-spacing: 4px;
+text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
+-webkit-text-stroke: 1.5px #4c8c2f;
+}
+position: relative;
+white-space: nowrap;
+display: inline-block;
+
+&::after {
+content: '';
+position: absolute;
+bottom: -20px;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(to right, transparent, #4c8c2f, transparent);
+opacity: 0.8;
+}
+
+
+@media (max-width: 1024px) {
+  font-size: 20px;
+  margin-bottom: 30px;
+  
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
   -webkit-text-stroke: 1.5px #4c8c2f;
-  position: relative;
-  white-space: nowrap;
-  display: inline-block;
+}
+}
 
-  @media (max-width: 1024px) {
-    font-size: 20px;
-    margin-bottom: 30px;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
-    -webkit-text-stroke: 1.5px #4c8c2f;
-  }
+@media (max-width: 768px) {
+  font-size: 18px;
+margin-bottom: 20px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
+  -webkit-text-stroke: 0.5px #4c8c2f;
+  
+}
 
-  @media (max-width: 768px) {
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
-    -webkit-text-stroke: 0.5px #4c8c2f;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+@media (max-width: 480px) {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 `;
 
 const StepDescription = styled.p`
