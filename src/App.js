@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Footer from './components/Footer';
-import Banner from './components/Hero/HeroSection';
+
 import FartGridComponent from './components/FartGrid';
 import TokenEconomicsSections from './components/TokenEconomics';
 import MainBackground from './components/Background';
@@ -29,7 +29,6 @@ function App() {
       <AppContainer>
        
       
-        <Banner />
         <About/>
         <GameSection/>
         <HallOfFame/>
