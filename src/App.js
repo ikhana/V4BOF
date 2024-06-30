@@ -2,18 +2,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Footer from './components/Footer';
 
-import FartGridComponent from './components/FartGrid';
-import TokenEconomicsSections from './components/TokenEconomics';
 import MainBackground from './components/Background';
-import PartnersSection from './components/MovingStrip';
-import Roadmap from './components/Rodmap';
-import HowToBuy from './components/HowToBuy';
-import HallOfFame from './components/HallOfFame';
+
 import { GlobalStyle } from './GlobalStyle';
 
-import CTASection from './components/CTASection';
+
 
 
 const AppContainer = styled.div`
