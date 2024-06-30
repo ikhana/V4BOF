@@ -7,8 +7,7 @@ import Footer from './components/Footer';
 
 import TokenEconomicsSections from './components/TokenEconomics';
 import MainBackground from './components/Background';
-import PartnersSection from './components/MovingStrip';
-import Roadmap from './components/Rodmap';
+
 import HowToBuy from './components/HowToBuy';
 
 import { GlobalStyle } from './GlobalStyle';
@@ -32,8 +31,7 @@ function App() {
       
       
         
-        <PartnersSection/>
-        <Roadmap/>
+       
         <TokenEconomicsSections />
         <CTASection/>
         <HowToBuy/>
