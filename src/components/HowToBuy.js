@@ -29,9 +29,8 @@ const HowToBuyContainer = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 11%);
-    background-repeat: repeat;
-    background-size: 200px 200px;
+    
+   
     opacity: 0.3;
     z-index: -1;
   }
