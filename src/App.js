@@ -31,14 +31,7 @@ function App() {
        
       
       
-        <HallOfFame/>
-        <FartGridComponent />
-        <PartnersSection/>
-        <Roadmap/>
-        <TokenEconomicsSections />
-        <CTASection/>
-        <HowToBuy/>
-        <Footer />
+       
       </AppContainer>
     </>
   );
