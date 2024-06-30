@@ -14,7 +14,7 @@ import HallOfFame from './components/HallOfFame';
 import { GlobalStyle } from './GlobalStyle';
 
 import CTASection from './components/CTASection';
-import GameSection from './components/GameSection';
+
 
 const AppContainer = styled.div`
   position: relative;
@@ -30,7 +30,7 @@ function App() {
        
        
       
-        <GameSection/>
+      
         <HallOfFame/>
         <FartGridComponent />
         <PartnersSection/>
