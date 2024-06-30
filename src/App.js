@@ -2,17 +2,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Footer from './components/Footer';
+
 
 
 import TokenEconomicsSections from './components/TokenEconomics';
 import MainBackground from './components/Background';
 
-import HowToBuy from './components/HowToBuy';
 
 import { GlobalStyle } from './GlobalStyle';
 
-import CTASection from './components/CTASection';
+
 
 
 const AppContainer = styled.div`
@@ -33,9 +32,7 @@ function App() {
         
        
         <TokenEconomicsSections />
-        <CTASection/>
-        <HowToBuy/>
-        <Footer />
+       
       </AppContainer>
     </>
   );
