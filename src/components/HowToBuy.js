@@ -43,52 +43,28 @@ const HowToBuyTitle = styled.h1`
   white-space: nowrap;
   display: inline-block;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(5deg);
-    width: 120%;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    z-index: -1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #8b4513, transparent);
-    opacity: 0.8;
-    }
-    
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     font-size: 40px;
     margin-bottom: 50px;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(76, 140, 47, 0.3), 3px 3px 0 #8b4513;
     -webkit-text-stroke: 1.5px #4c8c2f;
-    }
-    
-    @media (max-width: 768px) {
+  }
+
+  @media (max-width: 768px) {
     font-size: 32px;
     margin-bottom: 40px;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(76, 140, 47, 0.2), 2px 2px 0 #8b4513;
     -webkit-text-stroke: 1px #4c8c2f;
-    }
-    
-    @media (max-width: 480px) {
+  }
+
+  @media (max-width: 480px) {
     font-size: 24px;
     margin-bottom: 30px;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 8px rgba(76, 140, 47, 0.1), 1px 1px 0 #8b4513;
     -webkit-text-stroke: 0.5px #4c8c2f;
-    }
-    `;
-   
+  }
+`;
+
 
 const StepContainer = styled.div`
   display: flex;
