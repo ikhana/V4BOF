@@ -1,7 +1,6 @@
 // GameSection.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { FaTimes } from 'react-icons/fa';
 
 const fadeIn = keyframes`
   0% {
@@ -71,87 +70,32 @@ const GameSectionDescription = styled.p`
 
 const GameContainer = styled.div`
   width: 100%;
-  max-width: 1800px;
-  height: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  height: 0;
+  padding-bottom: 56.25%;
   position: relative;
+  margin: 0 auto;
   z-index: 2;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
-  @media (max-width: 1800px) {
-    height: 900px;
-  }
-
-  @media (max-width: 1600px) {
-    height: 800px;
-  }
-
-  @media (max-width: 1400px) {
-    height: 700px;
-  }
-
-  @media (max-width: 1200px) {
-    height: 600px;
-  }
-
-  @media (max-width: 992px) {
-    height: 500px;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding-bottom: 75%;
   }
 `;
 
-
 const GameIframe = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
 `;
 
-const ErrorContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  text-align: center;
-  padding: 20px;
-`;
-
-const ErrorIcon = styled(FaTimes)`
-  font-size: 80px;
-  color: #ff4444;
-  margin-bottom: 20px;
-`;
-
-const ErrorMessage = styled.p`
-  margin-bottom: 10px;
-`;
-
 const GameSection = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-      setIsMobile(isMobileDevice);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
   return (
     <GameSectionContainer id='game-section'>
       <GameSectionTitle>PLAY FARTING GAME</GameSectionTitle>
@@ -159,15 +103,7 @@ const GameSection = () => {
         Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $FARTI, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>
       <GameContainer>
-        {isMobile ? (
-          <ErrorContainer>
-            <ErrorIcon />
-            <ErrorMessage>Oops! The game is currently not available on mobile devices.</ErrorMessage>
-            <ErrorMessage>Please visit us on a PC to play the game.</ErrorMessage>
-          </ErrorContainer>
-        ) : (
-          <GameIframe src="/Build/index.html" title="Farti Land Game" />
-        )}
+        <GameIframe src="/Build/index.html" title="Farti Land Game" />
       </GameContainer>
     </GameSectionContainer>
   );
