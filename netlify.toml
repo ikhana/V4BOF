@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/Build/*.unityweb"
+  [headers.values]
+    Content-Encoding = "gzip"
