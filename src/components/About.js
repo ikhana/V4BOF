@@ -1,9 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import logoVariation from '../assets/aboutlogo.png';
 import welcomeD from '../assets/welcomeD.mp4';
 import welcomeM from '../assets/welcomeM.mp4';
-
 
 
 
