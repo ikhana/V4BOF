@@ -255,7 +255,7 @@ const PodiumBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(${props => props.backgroundImage}) no-repeat center center;
+  background: url(${props => props.backgroundimage}) no-repeat center center;
   background-size: cover;
   z-index: -1;
   opacity: 0.1;
@@ -393,7 +393,7 @@ const HallOfFame = () => {
             key={index}
             height={400 - index * 50}
           >
-            <PodiumBackground backgroundImage={contributor.fartGif} />
+            <PodiumBackground backgroundimage={contributor.fartGif} />
             <PodiumAudio
               ref={(el) => (audioRefs.current[index] = el)}
               src={contributor.fartSound}

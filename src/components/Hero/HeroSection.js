@@ -252,7 +252,7 @@ const Button = styled.button`
   padding: 15px 30px;
   font-size: 24px;
   font-weight: 600;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ backgroundcolor }) => backgroundcolor};
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -420,13 +420,13 @@ const Banner = () => {
           $FARTI is a hilarious and interactive memecoin project that celebrates the joy of flatulence. Dive into a world of laughter and earn meme coins for your gassy contributions by playing the Farti game or uploading your Farts
           </Description>
           <ButtonContainer>
-  <Button backgroundColor="#8b4513">
+  <Button backgroundcolor="#8b4513">
     Buy $FARTI
   </Button>
-  <Button backgroundColor="#4b2c20">
+  <Button backgroundcolor="#4b2c20">
     View Charts
   </Button>
-  <Button backgroundColor="#4c8c2f" onClick={scrollToGameSection}>
+  <Button backgroundcolor="#4c8c2f" onClick={scrollToGameSection}>
     Play Farti Game
   </Button>
 </ButtonContainer>
@@ -443,4 +443,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from '../assets/logoHeaderwhite.png';
 
@@ -25,7 +25,7 @@ const NavbarContainer = styled.nav`
     left: 0;
     width: 100%;
     padding: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-color: #3a6b24;
     backdrop-filter: none;
   }
@@ -33,17 +33,15 @@ const NavbarContainer = styled.nav`
 
 const Logo = styled.img`
   height: 130px;
-  width: 80px;
   width: auto;
   cursor: pointer;
   margin-right: 20px;
 
   @media (max-width: 768px) {
-    height: 80px;
+    height: 50px;
     margin-right: 10px;
   }
 `;
-
 const MenuItems = styled.ul`
   display: flex;
   list-style: none;
@@ -61,7 +59,7 @@ const MenuItems = styled.ul`
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 20px;
-    transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
+    transform: ${props => (props.isopen ? 'translateX(0)' : 'translateX(100%)')};
     transition: transform 0.3s ease;
     overflow-y: auto;
 
@@ -80,7 +78,6 @@ const MenuItems = styled.ul`
     }
   }
 `;
-
 const MenuItem = styled.li`
   margin-left: 30px;
   cursor: pointer;
@@ -121,64 +118,85 @@ const MenuItem = styled.li`
   }
 `;
 
-
-const liquidAnimation = keyframes`
+const gooeyEffect = keyframes`
   0% {
-    transform: translate(-50%, -75%) rotate(0deg);
+    --a: 0%;
+    --x: 50;
+    --y: 50;
   }
-  50% {
-    transform: translate(-50%, -60%) rotate(180deg);
+  20% {
+    --a: 100%;
+    --x: 0;
+    --y: 50;
+  }
+  40% {
+    --a: 0%;
+    --x: 50;
+    --y: 100;
+  }
+  60% {
+    --a: 100%;
+    --x: 100;
+    --y: 50;
+  }
+  80% {
+    --a: 0%;
+    --x: 50;
+    --y: 0;
   }
   100% {
-    transform: translate(-50%, -75%) rotate(360deg);
+    --a: 100%;
+    --x: 0;
+    --y: 50;
   }
 `;
 
 const FartButton = styled.button`
-  font-family: 'Exo 2', sans-serif;
-  padding: 16px 32px;
-  font-size: 24px;
-  font-weight: 600;
+  --a: 10%;
+  --hue: 110deg;
+  --x: 50;
+  --y: 50;
+  --button: hsl(var(--hue), 66%, 20%);
+  --edge: 20px;
+  --size: 1.6em;
+  
+  background: transparent;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
+  font-size: 1.6em;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
   position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  transition: all 0.3s ease;
+  padding: calc(var(--size)) calc(var(--size)*1.5);
+  animation: ${gooeyEffect} 8s ease-in-out infinite;
+  transition: 
+    --a .5s ease-in-out, 
+    scale var(--spring-duration) var(--spring-easing);
+  scale: 0.92;
+  isolation: isolate;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 40%;
-    transform: translate(-50%, -75%) rotate(0deg);
-    animation: ${liquidAnimation} 6s linear infinite;
-  }
-
-  &:after {
-    content: 'Start Farting Now !';
-    position: relative;
-    z-index: 1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5);
-    transform: translateY(-2px);
+    inset: 0em;
+    filter: blur(20px) url(#goo) drop-shadow(0 .25em .5em hsla(0deg, 0%, 0%, 0.8)); 
+    background-image:linear-gradient(0deg,var(--button),var(--button)),
+      radial-gradient(
+        50% 80% at calc(var(--x) * 1%) calc(var(--y) * 1%),
+        hsla(var(--hue), 77%, 50%, var(--a)) 0%,
+        transparent 90%
+      );
+    background-clip: content-box, border-box;
+    padding: 24px;
+    z-index: -1;
+    border: inherit;
+    animation: ${gooeyEffect} 8s ease-in-out infinite;
   }
 
   @media (max-width: 768px) {
-    font-size: 20px;
-    padding: 12px 24px;
+    font-size: 1.2em;
+    --size: 1.8em;
+    animation: ${gooeyEffect} 8s ease-in-out infinite;
   }
 `;
 
@@ -192,7 +210,7 @@ const HamburgerMenu = styled.div`
   position: relative;
   z-index: 2;
   margin-left: 10px;
-  left: -15px;
+  margin-right: 10px;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
@@ -203,6 +221,7 @@ const HamburgerMenu = styled.div`
   }
 `;
 
+
 const HamburgerLine = styled.div`
   width: 100%;
   height: 2px;
@@ -211,15 +230,15 @@ const HamburgerLine = styled.div`
   position: relative;
  
   &:nth-child(1) {
-    transform: ${props => (props.isOpen ? 'rotate(45deg) translate(1px, 1px)' : 'none')};
+    transform: ${props => (props.isopen ? 'rotate(45deg) translate(1px, 1px)' : 'none')};
   }
 
   &:nth-child(2) {
-    opacity: ${props => (props.isOpen ? '0' : '1')};
+    opacity: ${props => (props.isopen ? '0' : '1')};
   }
 
   &:nth-child(3) {
-    transform: ${props => (props.isOpen ? 'rotate(-45deg) translate(1px, -1px)' : 'none')};
+    transform: ${props => (props.isopen ? 'rotate(-45deg) translate(1px, -1px)' : 'none')};
   }
 `;
 
@@ -231,7 +250,7 @@ const MenuOverlay = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 998;
-  display: ${props => (props.isOpen ? 'block' : 'none')};
+  display: ${props => (props.isopen ? 'block' : 'none')};
 `;
 
 const Navbar = () => {
@@ -272,21 +291,37 @@ const Navbar = () => {
     <>
       <NavbarContainer>
         <Logo src={logo} alt="FARTI LAND Logo" />
-        <MenuItems isOpen={isMenuOpen}>
+        <MenuItems isopen={isMenuOpen ? 'true' : undefined}>
           <MenuItem onClick={() => handleMenuItemClick('about')}>About</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('hall-of-fame')}>Hall of Fame</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('roadmap')}>Roadmap</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('tokenomics')}>Tokenomics</MenuItem>
           <MenuItem onClick={() => handleMenuItemClick('how-to-buy')}>How to Buy</MenuItem>
         </MenuItems>
-       <FartButton onClick={handleFartButtonClick} />
+        <FartButton onClick={handleFartButtonClick}>
+          Start Farting Now!
+        </FartButton>
         <HamburgerMenu onClick={handleMenuToggle}>
-          <HamburgerLine isOpen={isMenuOpen} />
-          <HamburgerLine isOpen={isMenuOpen} />
-          <HamburgerLine isOpen={isMenuOpen} />
+        <HamburgerLine isopen={isMenuOpen ? 'true' : undefined} />
+<HamburgerLine isopen={isMenuOpen ? 'true' : undefined} />
+<HamburgerLine isopen={isMenuOpen ? 'true' : undefined} />
+
         </HamburgerMenu>
       </NavbarContainer>
-      <MenuOverlay isOpen={isMenuOpen} onClick={handleMenuToggle} />
+      <MenuOverlay isopen={isMenuOpen ? 'true' : undefined} onClick={handleMenuToggle} />
+
+      
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+          <feComponentTransfer>
+            <feFuncA type="discrete" tableValues="0 1"></feFuncA>
+          </feComponentTransfer>
+          <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+          <feComponentTransfer>
+            <feFuncA type="table" tableValues="-5 11"></feFuncA>
+          </feComponentTransfer>
+        </filter>
+      </svg>
     </>
   );
 };

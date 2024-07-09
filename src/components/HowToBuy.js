@@ -111,7 +111,7 @@ const StepIcon = styled.div`
   transition: color 0.3s ease;
 
   &:hover {
-    color: ${props => props.hoverColor};
+    color: ${props => props.hovercolor};
   }
 `;
 
@@ -239,7 +239,7 @@ const HowToBuy = () => {
       <HowToBuyTitle>How to Buy $FARTI</HowToBuyTitle>
       <StepContainer>
       <Step>
-  <StepIcon color="#8b4513" hoverColor="#a0522d">
+  <StepIcon color="#8b4513" hovercolor="#a0522d">
     <FaWallet />
   </StepIcon>
   <StepTitle>Step 1: Create a Wallet</StepTitle>
@@ -249,7 +249,7 @@ const HowToBuy = () => {
   </StepDescription>
 </Step>
         <Step>
-          <StepIcon color="#ffc107" hoverColor="#ffd54f">
+          <StepIcon color="#ffc107" hovercolor="#ffd54f">
             <FaCoins />
           </StepIcon>
           <StepTitle>Step 2: Have SOL in Wallet</StepTitle>
@@ -259,7 +259,7 @@ const HowToBuy = () => {
           </StepDescription>
         </Step>
         <Step>
-          <StepIcon color="#2196f3" hoverColor="#64b5f6">
+          <StepIcon color="#2196f3" hovercolor="#64b5f6">
             <FaExchangeAlt />
           </StepIcon>
           <StepTitle>Step 3: Switch SOL for $FARTI</StepTitle>

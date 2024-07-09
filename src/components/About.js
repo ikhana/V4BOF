@@ -1,6 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import logoVariation from '../assets/aboutlogo.png';
+import welcomeD from '../assets/welcomeD.mp4';
+import welcomeM from '../assets/welcomeM.mp4';
+
+
+
+
 
 const AboutContainer = styled.section`
   padding: 60px 20px;
@@ -23,6 +29,37 @@ const AboutContent = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+`;
+
+const VideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  padding-top: 30.80%; /* 16:9 aspect ratio */
+  background-color: #000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-bottom: 40px;
+    padding-top: 56.25%; 
+  }
+`;
+
+const Video = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  @media (max-width: 768px) {
+    object-fit: cover;
   }
 `;
 
@@ -239,8 +276,16 @@ const FartCloudRight = styled.div`
   }
 `;
 const About = () => {
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <AboutContainer id='about'>
+      <VideoContainer>
+        <Video autoPlay muted loop>
+          <source src={isMobile ? welcomeM : welcomeD} type="video/mp4" />
+          Your browser does not support the video tag.
+        </Video>
+      </VideoContainer>
       <AboutContent>
         <LeftColumn>
           <LogoVariationContainer>
@@ -253,7 +298,7 @@ const About = () => {
         <RightColumn>
           <AboutTitle>About $FARTI</AboutTitle>
           <AboutDescription>
-             We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
+            We believe that laughter is the best medicine, and our mission is to spread happiness and humor throughout the crypto world.
           </AboutDescription>
           <AboutDescription>
             With $FARTI, you can earn rewards for your gassy contributions and engage in a variety of fart-themed activities. From daily fart sound contests to exclusive NFT collections, we aim to create a fun and engaging ecosystem that unites people through the power of laughter.
