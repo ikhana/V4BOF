@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -97,37 +97,9 @@ const GameIframe = styled.iframe`
 
 
 
-const LoadingPlaceholder = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  font-size: 24px;
-`;
+
 
 const GameSection = React.memo(() => {
-  const [isGameLoaded, setIsGameLoaded] = useState(false);
-
-  const handleGameLoad = useCallback(() => {
-    setIsGameLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isGameLoaded) {
-        console.log('Game is taking longer than expected to load');
-      }
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, [isGameLoaded]);
-
   return (
     <GameSectionContainer id='game-section'>
       <GameSectionTitle>PLAY FARTING GAME</GameSectionTitle>
@@ -135,11 +107,9 @@ const GameSection = React.memo(() => {
         Immerse yourself in the hilarious world of FartiLand with our interactive game! Earn $FARTI, avoid obstacles, and compete with other players to become the ultimate fart champion. Let the gassy adventure begin!
       </GameSectionDescription>
       <GameContainer>
-        {!isGameLoaded && <LoadingPlaceholder>Loading Game...</LoadingPlaceholder>}
         <GameIframe 
           src="/Build/index.html" 
           title="Farti Land Game" 
-          onLoad={handleGameLoad}
           aria-label="Farti Land Game"
         />
       </GameContainer>
