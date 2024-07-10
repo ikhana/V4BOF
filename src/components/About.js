@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import YouTube from 'react-youtube';
 import logoVariation from '../assets/aboutlogo.png';
 
-
-
 const AboutContainer = styled.section`
   padding: 60px 20px;
   text-align: center;
@@ -29,14 +27,13 @@ const AboutContent = styled.div`
   }
 `;
 
-
-const YouTubeContainer = styled.div`
+const VideoContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   margin-bottom: 60px;
-  padding-top: 50.625%; /* 16:9 aspect ratio */
+  padding-top: 30.80%; /* 16:9 aspect ratio */
   background-color: #000;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
   overflow: hidden;
@@ -44,7 +41,7 @@ const YouTubeContainer = styled.div`
   @media (max-width: 768px) {
     max-width: 100%;
     margin-bottom: 40px;
-    padding-top: 177.78%; /* 9:16 aspect ratio for mobile */
+    padding-top: 56.25%; 
   }
 `;
 
@@ -54,8 +51,17 @@ const StyledYouTube = styled(YouTube)`
   left: 0;
   width: 100%;
   height: 100%;
-`;
 
+  iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @media (max-width: 768px) {
+      object-fit: cover;
+    }
+  }
+`;
 
 const LeftColumn = styled.div`
   flex: 1;
@@ -167,6 +173,7 @@ const AboutTitle = styled.h2`
     -webkit-text-stroke: 0.5px #4c8c2f;
   }
 `;
+
 const AboutDescription = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
@@ -269,6 +276,7 @@ const FartCloudRight = styled.div`
     right: -50px;
   }
 `;
+
 const About = () => {
   const isMobile = window.innerWidth <= 768;
 
@@ -285,18 +293,27 @@ const About = () => {
       controls: 0,
       showinfo: 0,
       modestbranding: 1,
+      rel: 0,
       playlist: isMobile ? mobileVideoId : desktopVideoId, // Required for looping
+      iv_load_policy: 3, // Disable annotations
+      fs: 0, // Disable fullscreen button
+      disablekb: 1, // Disable keyboard controls
+      playsinline: 1, // Play inline on mobile devices
     },
   };
 
   return (
     <AboutContainer id='about'>
-      <YouTubeContainer>
+      <VideoContainer>
         <StyledYouTube
           videoId={isMobile ? mobileVideoId : desktopVideoId}
           opts={opts}
+          onReady={(event) => {
+            // Hide YouTube logo and other UI elements
+            event.target.getIframe().style.pointerEvents = 'none';
+          }}
         />
-      </YouTubeContainer>
+      </VideoContainer>
       <AboutContent>
         <LeftColumn>
           <LogoVariationContainer>
