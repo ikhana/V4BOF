@@ -8,7 +8,7 @@ import pinksale from "../../assets/header/pinksale.png"
 import dexstools from "../../assets/header/dex.png"
 import xlogo from "../../assets/header/twitter.png"
 import tlogo from "../../assets/header/telegram.png"
-import animatedLogo from "../../assets/herologo.png";
+import animatedLogo from "../../assets/herologo-min.png";
 
 
 

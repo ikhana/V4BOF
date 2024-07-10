@@ -1,7 +1,7 @@
 // CTASection.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import logoVariation from '../assets/lovelogo.png';
+import logoVariation from '../assets/lovelogo-min.png';
 
 const fadeIn = keyframes`
   0% {

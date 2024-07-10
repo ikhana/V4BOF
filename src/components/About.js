@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import YouTube from 'react-youtube';
-import logoVariation from '../assets/aboutlogo.png';
+import logoVariation from '../assets/aboutlogo-min.png';
 
 const AboutContainer = styled.section`
   padding: 60px 20px;
