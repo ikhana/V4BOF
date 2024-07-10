@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import YouTube from 'react-youtube';
 import logoVariation from '../assets/aboutlogo.png';
-import welcomeD from '../assets/welcomeD.mp4';
-import welcomeM from '../assets/welcomeM.mp4';
-
 
 
 
@@ -31,13 +29,14 @@ const AboutContent = styled.div`
   }
 `;
 
-const VideoContainer = styled.div`
+
+const YouTubeContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   margin-bottom: 60px;
-  padding-top: 30.80%; /* 16:9 aspect ratio */
+  padding-top: 50.625%; /* 16:9 aspect ratio */
   background-color: #000;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
   overflow: hidden;
@@ -45,22 +44,18 @@ const VideoContainer = styled.div`
   @media (max-width: 768px) {
     max-width: 100%;
     margin-bottom: 40px;
-    padding-top: 56.25%; 
+    padding-top: 177.78%; /* 9:16 aspect ratio for mobile */
   }
 `;
 
-const Video = styled.video`
+const StyledYouTube = styled(YouTube)`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-
-  @media (max-width: 768px) {
-    object-fit: cover;
-  }
 `;
+
 
 const LeftColumn = styled.div`
   flex: 1;
@@ -277,14 +272,31 @@ const FartCloudRight = styled.div`
 const About = () => {
   const isMobile = window.innerWidth <= 768;
 
+  const desktopVideoId = 'q8PO63nCNt4'; // Your desktop video ID
+  const mobileVideoId = 'kOHg3rG_vY0'; // Your mobile video ID
+
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      controls: 0,
+      showinfo: 0,
+      modestbranding: 1,
+      playlist: isMobile ? mobileVideoId : desktopVideoId, // Required for looping
+    },
+  };
+
   return (
     <AboutContainer id='about'>
-      <VideoContainer>
-        <Video autoPlay muted loop>
-          <source src={isMobile ? welcomeM : welcomeD} type="video/mp4" />
-          Your browser does not support the video tag.
-        </Video>
-      </VideoContainer>
+      <YouTubeContainer>
+        <StyledYouTube
+          videoId={isMobile ? mobileVideoId : desktopVideoId}
+          opts={opts}
+        />
+      </YouTubeContainer>
       <AboutContent>
         <LeftColumn>
           <LogoVariationContainer>
