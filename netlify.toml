@@ -2,8 +2,3 @@
   for = "/Build/*.unityweb"
   [headers.values]
     Content-Encoding = "gzip"
-
-[[headers]]
-  for = "/Build/*.js"
-  [headers.values]
-    Content-Encoding = "gzip"
