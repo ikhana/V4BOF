@@ -1,0 +1,14 @@
+[[headers]]
+  for = "/*.unityweb"
+  [headers.values]
+    Content-Encoding = "gzip"
+
+[[headers]]
+  for = "/Build/*.unityweb"
+  [headers.values]
+    Content-Encoding = "gzip"
+
+[[headers]]
+  for = "/*.js.unityweb"
+  [headers.values]
+    Content-Encoding = "gzip"
