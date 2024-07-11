@@ -69,9 +69,8 @@ const GameSectionDescription = styled.p`
 
 const GameContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
-  height: 0;
-  padding-bottom: 56.25%;
+  max-width: 900px;
+  height: 500px;
   position: relative;
   margin: 0 auto;
   z-index: 2;
@@ -81,23 +80,16 @@ const GameContainer = styled.div`
 
   @media (max-width: 768px) {
     max-width: 100%;
-    padding-bottom: 75%;
+    height: 56.25vw;
+    max-height: 500px;
   }
 `;
 
 const GameIframe = styled.iframe`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   border: none;
 `;
-
-
-
-
-
 
 const GameSection = React.memo(() => {
   return (
@@ -108,7 +100,7 @@ const GameSection = React.memo(() => {
       </GameSectionDescription>
       <GameContainer>
         <GameIframe 
-          src="/Build/index.html" 
+          src="https://i.simmer.io/@Inaam/farti-farts" 
           title="Farti Land Game" 
           aria-label="Farti Land Game"
         />
