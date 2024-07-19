@@ -122,7 +122,6 @@ const RoadmapPhase = styled.div`
     left: -20px;
     width: 100px;
     height: 100px;
-    background-image: url('path/to/fart-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.2;
@@ -137,7 +136,6 @@ const RoadmapPhase = styled.div`
     right: -20px;
     width: 100px;
     height: 100px;
-    background-image: url('path/to/fart-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.2;
@@ -295,7 +293,6 @@ const FartTrail = styled.div`
   left: 20px;
   width: 200px;
   height: 200px;
-  background-image: url('path/to/fart-trail.png');
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.8;
@@ -317,7 +314,6 @@ const FartConfetti = styled.div`
   right: 20px;
   width: 150px;
   height: 150px;
-  background-image: url('path/to/fart-confetti.png');
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.8;

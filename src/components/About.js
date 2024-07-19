@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import YouTube from 'react-youtube';
-import logoVariation from '../assets/aboutlogo-min.png';
+import logoVariation from '../assets/aboutlogo.png';
+import welcomeD from '../assets/welcomeD.mp4';
+import welcomeM from '../assets/welcomeM.mp4';
+
+
+
 
 const AboutContainer = styled.section`
   padding: 60px 20px;
@@ -27,6 +31,8 @@ const AboutContent = styled.div`
   }
 `;
 
+
+
 const VideoContainer = styled.div`
   position: relative;
   width: 100%;
@@ -45,21 +51,16 @@ const VideoContainer = styled.div`
   }
 `;
 
-const StyledYouTube = styled(YouTube)`
+const Video = styled.video`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-
-    @media (max-width: 768px) {
-      object-fit: cover;
-    }
+  @media (max-width: 768px) {
+    object-fit: cover;
   }
 `;
 
@@ -173,7 +174,6 @@ const AboutTitle = styled.h2`
     -webkit-text-stroke: 0.5px #4c8c2f;
   }
 `;
-
 const AboutDescription = styled.p`
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
@@ -276,43 +276,16 @@ const FartCloudRight = styled.div`
     right: -50px;
   }
 `;
-
 const About = () => {
   const isMobile = window.innerWidth <= 768;
-
-  const desktopVideoId = 'q8PO63nCNt4'; // Your desktop video ID
-  const mobileVideoId = 'kOHg3rG_vY0'; // Your mobile video ID
-
-  const opts = {
-    height: '100%',
-    width: '100%',
-    playerVars: {
-      autoplay: 1,
-      mute: 1,
-      loop: 1,
-      controls: 0,
-      showinfo: 0,
-      modestbranding: 1,
-      rel: 0,
-      playlist: isMobile ? mobileVideoId : desktopVideoId, // Required for looping
-      iv_load_policy: 3, // Disable annotations
-      fs: 0, // Disable fullscreen button
-      disablekb: 1, // Disable keyboard controls
-      playsinline: 1, // Play inline on mobile devices
-    },
-  };
 
   return (
     <AboutContainer id='about'>
       <VideoContainer>
-        <StyledYouTube
-          videoId={isMobile ? mobileVideoId : desktopVideoId}
-          opts={opts}
-          onReady={(event) => {
-            // Hide YouTube logo and other UI elements
-            event.target.getIframe().style.pointerEvents = 'none';
-          }}
-        />
+        <Video autoPlay muted loop>
+          <source src={isMobile ? welcomeM : welcomeD} type="video/mp4" />
+          Your browser does not support the video tag.
+        </Video>
       </VideoContainer>
       <AboutContent>
         <LeftColumn>

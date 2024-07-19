@@ -11,13 +11,13 @@ import fartx7 from "../assets/farts/fart7.wav";
 import fartx8 from "../assets/farts/fart8.wav";
 import fartx9 from "../assets/farts/fart9.wav";
 import fart1 from "../assets/farts/fart1.gif";
-import fart2 from "../assets/farts/fart2.gif";
-import fart3 from "../assets/farts/fart3.gif";
-import fart4 from "../assets/farts/fart4.gif";
-import fart5 from "../assets/farts/fart41.gif";
-import fart6 from "../assets/farts/fart5.gif";
-import fart7 from "../assets/farts/fart6.gif";
-import fart8 from "../assets/farts/fart7.gif";
+import fart2 from "../assets/farts/fart2m.gif";
+import fart3 from "../assets/farts/fart3m.gif";
+import fart4 from "../assets/farts/fart4m.gif";
+import fart5 from "../assets/farts/fart41m.gif";
+import fart6 from "../assets/farts/fart5m.gif";
+import fart7 from "../assets/farts/fart6m.gif";
+import fart8 from "../assets/farts/fart7m.gif";
 
 const fadeIn = keyframes`
   0% {

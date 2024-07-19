@@ -198,6 +198,12 @@ const FartButton = styled.button`
     --size: 1.8em;
     animation: ${gooeyEffect} 8s ease-in-out infinite;
   }
+
+   @media (max-width: 428px) {
+    font-size: 1.4em;
+    --size: 2em;
+    animation: ${gooeyEffect} 8s ease-in-out infinite;
+  }
 `;
 
 const HamburgerMenu = styled.div`

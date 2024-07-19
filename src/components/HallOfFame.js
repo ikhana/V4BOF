@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import crown from '../assets/crwon.png';
-import fartemoji1 from "../assets/farts/fart5.gif";
-import fartemoji2 from "../assets/farts/fart6.gif";
-import fartemoji3 from "../assets/farts/fart7.gif";
+import fartemoji1 from "../assets/farts/fart5m.gif";
+import fartemoji2 from "../assets/farts/fart6m.gif";
+import fartemoji3 from "../assets/farts/fart7m.gif";
 import fartaudio1 from "../assets/farts/fart5.wav";
 import fartaudio2 from "../assets/farts/fart4.wav";
 import fartaudio3 from "../assets/farts/fart2.wav";
