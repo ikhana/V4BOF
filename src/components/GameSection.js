@@ -1,5 +1,5 @@
 // GameSection.js
-import React, { useState, useEffect} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -14,20 +14,24 @@ const fadeIn = keyframes`
 `;
 
 const GameSectionContainer = styled.section`
-  padding: 20px;
+  padding: 100px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
   perspective: 1000px;
   animation: ${fadeIn} 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding: 80px 20px;
+  }
 `;
 
 const GameSectionTitle = styled.h2`
   font-family: 'Exo 2', sans-serif;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 4px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(76, 140, 47, 0.4), 4px 4px 0 #8b4513;
@@ -36,16 +40,17 @@ const GameSectionTitle = styled.h2`
   z-index: 2;
 
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 36px;
+    margin-bottom: 30px;
   }
 `;
 
 const GameSectionDescription = styled.p`
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -57,30 +62,38 @@ const GameSectionDescription = styled.p`
   -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 20px;
+    margin-bottom: 30px;
     max-width: 90%;
   }
 `;
 
 const GameContainer = styled.div`
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; // 16:9 aspect ratio
+  max-width: 800px;
+  max-height: 450px;
+  aspect-ratio: 16 / 9;
   position: relative;
-  overflow: hidden;
-  max-width: 1200px;
   margin: 0 auto;
+  z-index: 2;
   border-radius: 10px;
+  overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 `;
 
-const GameIframe = styled.iframe`
+const GameCanvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: contain;
 `;
 
 const LoaderContainer = styled.div`
@@ -118,14 +131,65 @@ const LoadingText = styled.p`
 `;
 
 const GameSection = () => {
+  const canvasRef = useRef(null);
   const [loading, setLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // Simulated loading time, adjust as needed
+    let unityInstance = null;
 
-    return () => clearTimeout(timer);
+    const loadUnityGame = async () => {
+      try {
+        console.log("Attempting to load Unity loader script...");
+        const loaderScript = document.createElement('script');
+        loaderScript.src = '/Build/Build/WebBuild.loader.js';
+        loaderScript.async = true;
+        document.body.appendChild(loaderScript);
+
+        loaderScript.onload = async () => {
+          console.log("Unity loader script loaded successfully");
+          if (typeof window.createUnityInstance === "undefined") {
+            console.error("Unity create instance function not found");
+            return;
+          }
+
+          unityInstance = await window.createUnityInstance(canvasRef.current, {
+            dataUrl: "/Build/Build/WebBuild.data.unityweb",
+            frameworkUrl: "/Build/Build/WebBuild.framework.js.unityweb",
+            codeUrl: "/Build/Build/WebBuild.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "FartiLand",
+            productVersion: "0.1",
+          }, (progress) => {
+          
+            setLoadingProgress(Math.round(progress * 100));
+          });
+
+          console.log("Unity WebGL game loaded:", unityInstance);
+          setLoading(false);
+        };
+
+        loaderScript.onerror = (error) => {
+          console.error("Error loading Unity loader script:", error);
+        };
+      } catch (error) {
+        console.error("Failed to load Unity game:", error);
+      }
+    };
+
+    loadUnityGame();
+
+    // Cleanup function
+    return () => {
+      if (unityInstance) {
+        unityInstance.Quit();
+      }
+      const loaderScript = document.querySelector('script[src="/Build/Build/WebBuild.loader.js"]');
+      if (loaderScript) {
+        document.body.removeChild(loaderScript);
+      }
+    };
   }, []);
 
   return (
@@ -138,15 +202,12 @@ const GameSection = () => {
         {loading && (
           <LoaderContainer>
             <Loader />
-            <LoadingText>Loading...</LoadingText>
+            <LoadingText>Loading... {loadingProgress}%</LoadingText>
           </LoaderContainer>
         )}
-        <GameIframe 
-          src="/Build/index.html" 
-          title="FartiLand Game"
-          allow="autoplay; fullscreen; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated"
-          allowFullScreen
-        />
+        <div id="unity-container" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+          <GameCanvas ref={canvasRef} id="unity-canvas" />
+        </div>
       </GameContainer>
     </GameSectionContainer>
   );

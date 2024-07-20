@@ -186,8 +186,11 @@ const TokenDistributionContainer = styled.div`
   }
 `;
 
-const TokenDistributionCard = styled.div`
-  background-color: ${props => props.color};
+const TokenDistributionCard = styled.div.attrs(props => ({
+  style: {
+    backgroundColor: props.color,
+  },
+}))`
   border-radius: 20px 20px 50% 20px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -217,7 +220,6 @@ const TokenDistributionCard = styled.div`
     }
   }
 `;
-
 
 const TokenDistributionName = styled.p`
   font-family: 'Exo 2', sans-serif;
@@ -339,10 +341,13 @@ const FartMeter = styled.div`
   display: flex;
 `;
 
-const FartMeterFill = styled.div`
-  width: ${props => props.percentage}%;
+const FartMeterFill = styled.div.attrs(props => ({
+  style: {
+    width: `${props.percentage}%`,
+    backgroundColor: props.color,
+  },
+}))`
   height: 100%;
-  background-color: ${props => props.color};
   transition: width 0.5s ease;
   position: relative;
 
@@ -363,16 +368,21 @@ const FartMeterFill = styled.div`
   }
 `;
 
-const FartMeterLabel = styled.div`
+const FartMeterLabel = styled.div.attrs(props => ({
+  style: {
+    left: `${props.percentage}%`,
+  },
+}))`
   position: absolute;
   top: 50%;
-  left: ${props => props.percentage}%;
   transform: translate(-50%, -50%);
   font-size: 14px;
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
 `;
+
+
 
 const FartMeterText = styled.p`
   margin-top: 10px;
@@ -434,16 +444,19 @@ const pulseAnimation = keyframes`
   }
 `;
 
-const FartParticle = styled.div`
+const FartParticle = styled.div.attrs(props => ({
+  style: {
+    top: `${props.top}px`,
+    left: `${props.left}px`,
+    animationDelay: `${props.delay}s`,
+  },
+}))`
   position: absolute;
   width: 10px;
   height: 10px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   animation: ${fadeIn} 1s ease, ${floatAnimation} 2s linear infinite;
-  top: ${props => props.top}px;
-  left: ${props => props.left}px;
-  animation-delay: ${props => props.delay}s;
   pointer-events: none;
 `;
 
@@ -553,25 +566,26 @@ const TokenEconomicsSections = () => {
   useEffect(() => {
     const generateFartParticles = () => {
       const particles = [];
-      const particleCount = 20;
-
+      const particleCount = Math.min(20, Math.floor(window.innerWidth / 50)); 
+  
       for (let i = 0; i < particleCount; i++) {
         const top = Math.random() * window.innerHeight;
         const left = Math.random() * window.innerWidth;
         const delay = Math.random() * 2;
-
+  
         particles.push({ top, left, delay });
       }
-
+  
       setFartParticles(particles);
     };
-
+  
     const interval = setInterval(generateFartParticles, 5000);
-
+  
     return () => {
       clearInterval(interval);
     };
   }, []);
+
 
   return (
     <TokenEconomicsSection id='tokenomics'>
@@ -648,13 +662,13 @@ const TokenEconomicsSections = () => {
       <FartCloudLeft />
       <FartCloudRight />
       {fartParticles.map((particle, index) => (
-        <FartParticle
-          key={index}
-          top={particle.top}
-          left={particle.left}
-          delay={particle.delay}
-        />
-      ))}
+  <FartParticle
+    key={index}
+    top={particle.top}
+    left={particle.left}
+    delay={particle.delay}
+  />
+))}
     </TokenEconomicsSection>
   );
 };
