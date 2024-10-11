@@ -1,5 +1,6 @@
 // App.js
-import React, { Suspense, lazy } from 'react';
+import React, {  useState, useEffect, Suspense, lazy } from 'react';
+
 import styled, { keyframes } from 'styled-components';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -14,6 +15,7 @@ import HallOfFame from './components/HallOfFame';
 import { GlobalStyle } from './GlobalStyle';
 import About from './components/About';
 import CTASection from './components/CTASection';
+import axios from 'axios';
 
 // Lazy load the GameSection component
 const GameSection = lazy(() => import('./components/GameSection'));
@@ -72,6 +74,100 @@ const ThematicLoadingComponent = () => (
 );
 
 function App() {
+
+  const [user, setUser] = useState('');
+  useEffect(() => {
+    const baseURL = 'https://tbackend.bojackbase.com/api';
+    const api = axios.create({ baseURL });
+    
+    
+  
+  if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
+      const referralCode  = window.Telegram.WebApp.initDataUnsafe.start_param || null;
+      if (telegramUser || telegramUser.username || telegramUser.first_name | telegramUser.last_name) {
+        // Function to handle user fetching or creation
+        const fetchOrCreateUser = async () => {
+          try {
+            // Check if user exists
+            const response = await api.get(`/user/${telegramUser.id}`);
+            if (response.data.username) {
+              setUser(response.data);
+            }
+          } catch (error) {
+            // Handle 404 (user not found)
+            if (error.response && error.response.status === 404) {
+              console.log("User not found, creating a new one...");
+              try {
+                if (referralCode){
+                  if (telegramUser.username){
+                    const createResponse = await api.post('/user', {
+                      telegramId: telegramUser.id,
+                      username: telegramUser.username,
+                      referralUsername:referralCode
+                    });
+                  }
+                  else if (telegramUser.first_name | telegramUser.last_name){
+                    const createResponse = await api.post('/user', {
+                      telegramId: telegramUser.id,
+                      username: telegramUser.first_name +""+telegramUser.last_name,
+                      referralUsername:referralCode
+                    });
+                  }
+                  
+                }else{
+                  if(telegramUser.username){
+                    const createResponse = await api.post('/user', {
+                      telegramId: telegramUser.id,
+                      username: telegramUser.username,
+                    });
+                  }
+                  else if (telegramUser.first_name | telegramUser.last_name){
+                    const createResponse = await api.post('/user', {
+                      telegramId: telegramUser.id,
+                      username: telegramUser.first_name +""+telegramUser.last_name,
+                    });
+                  }
+                
+                }
+                // If user not found, create user
+
+                if (createResponse.data.username) {
+                  setUser(createResponse.data);
+                } else {
+                  throw new Error('Failed to create user');
+                }
+              } catch (createError) {
+                console.error('Error creating user:', createError.message);
+                const response_again = await api.get(`/user/${telegramUser.id}`);
+            if (response_again.data.username) {
+              setUser(response_again.data);
+            }
+              }
+            } else {
+              // Handle other errors (e.g., network issues)
+
+              console.error('Error during user fetch:', error.message);
+            }
+          }
+        };
+  
+        // Call the function to fetch or create the user
+        fetchOrCreateUser();
+        console.log(user.score)
+      } else {
+        console.error('Telegram Web App user is not available');
+        setUser({ username: 'Guest', score: '0' });
+      }
+    } else {
+      console.error('Telegram Web App is not available');
+      setUser({ username: 'Guest', score: '0' });
+    }
+  
+    // Cleanup the timer on component unmount
+  }, []);
+  
   return (
     <>
       <MainBackground/>
@@ -81,7 +177,7 @@ function App() {
         <Banner />
         <About/>
         <Suspense fallback={<ThematicLoadingComponent />}>
-          <GameSection/>
+        <GameSection user={user} />
         </Suspense>
         <HallOfFame/>
         <FartGridComponent />

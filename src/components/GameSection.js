@@ -1,6 +1,7 @@
 // GameSection.js
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import axios from 'axios';
 
 const fadeIn = keyframes`
   0% {
@@ -129,11 +130,12 @@ const LoadingText = styled.p`
   font-size: 24px;
   margin-top: 20px;
 `;
-
-const GameSection = () => {
+const GameSection = ({user}) => {
   const canvasRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     let unityInstance = null;
@@ -142,7 +144,7 @@ const GameSection = () => {
       try {
         console.log("Attempting to load Unity loader script...");
         const loaderScript = document.createElement('script');
-        loaderScript.src = '/Build/Build/WebBuild.loader.js';
+        loaderScript.src = '/Build/Build/bulidgame.loader.js';
         loaderScript.async = true;
         document.body.appendChild(loaderScript);
 
@@ -153,16 +155,33 @@ const GameSection = () => {
             return;
           }
 
+          // Define the function to receive score from Unity
+          window.receiveScoreFromUnity = (score) => {
+            setScore(parseFloat(score));
+            setGameOver(true);
+            const apiUrl = `https://tbackend.bojackbase.com/api/score/${user.id}`;
+
+            // Perform API call without async/await inside window function
+            axios.put(apiUrl, { score: score })
+              .then((response) => {
+                console.log("Score updated successfully:", response.data);
+              })
+              .catch((error) => {
+                console.error("Error updating score:", error);
+              });
+  
+            console.log("Received score from Unity:", score);
+          };
+
           unityInstance = await window.createUnityInstance(canvasRef.current, {
-            dataUrl: "/Build/Build/WebBuild.data.unityweb",
-            frameworkUrl: "/Build/Build/WebBuild.framework.js.unityweb",
-            codeUrl: "/Build/Build/WebBuild.wasm.unityweb",
+            dataUrl: "/Build/Build/bulidgame.data.unityweb",
+            frameworkUrl: "/Build/Build/bulidgame.framework.js.unityweb",
+            codeUrl: "/Build/Build/bulidgame.wasm.unityweb",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "FartiLand",
             productVersion: "0.1",
           }, (progress) => {
-          
             setLoadingProgress(Math.round(progress * 100));
           });
 
@@ -189,9 +208,11 @@ const GameSection = () => {
       if (loaderScript) {
         document.body.removeChild(loaderScript);
       }
+      // Remove the global function
+      delete window.receiveScoreFromUnity;
     };
   }, []);
-
+  
   return (
     <GameSectionContainer id='game-section'>
       <GameSectionTitle>PLAY FARTING GAME</GameSectionTitle>
@@ -209,6 +230,9 @@ const GameSection = () => {
           <GameCanvas ref={canvasRef} id="unity-canvas" />
         </div>
       </GameContainer>
+      {gameOver && (
+        console.log(score.toFixed(2))
+      )}
     </GameSectionContainer>
   );
 };
